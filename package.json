@@ -1,0 +1,55 @@
+{
+  "name": "react-native-elderly",
+  "title": "React Native Elderly",
+  "version": "0.0.1",
+  "description": "Framework de interface de usuário para React Native com foco em acessibilidade para idosos",
+  "main": "index.js",
+  "files": [
+    "README.md",
+    "android",
+    "index.js",
+    "ios",
+    "react-native-elderly.podspec"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 7007",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reisdev/react-native-elderly.git",
+    "baseUrl": "https://github.com/reisdev/react-native-elderly"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": {
+    "name": "Matheus dos Reis de Jesus",
+    "email": "matheusdrdj@gmail.com"
+  },
+  "license": "MIT",
+  "licenseFilename": "LICENSE",
+  "readmeFilename": "README.md",
+  "peerDependencies": {
+    "react": "^16.8.1",
+    "react-native": ">=0.60.0-rc.0 <1.0.x"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@storybook/addon-actions": "^5.3",
+    "@storybook/addon-knobs": "^5.3",
+    "@storybook/addon-links": "^5.3",
+    "@storybook/addon-ondevice-actions": "^5.3.23",
+    "@storybook/addon-ondevice-knobs": "^5.3.23",
+    "@storybook/react-native": "^5.3.23",
+    "@storybook/react-native-server": "^5.3.23",
+    "babel-loader": "^8.2.1",
+    "react": "^16.9.0",
+    "react-native": "^0.61.5"
+  },
+  "dependencies": {
+    "react-dom": "^17.0.1",
+    "typescript": "^4.1.2"
+  }
+}
