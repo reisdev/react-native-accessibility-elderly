@@ -13,8 +13,9 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 7007",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook",
+    "build-storybook": "build-storybook",
+    "run-android": "cd example && react-native run-android"
   },
   "repository": {
     "type": "git",
@@ -37,16 +38,22 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
-    "@storybook/addon-actions": "^5.3",
-    "@storybook/addon-knobs": "^5.3",
-    "@storybook/addon-links": "^5.3",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-react": "^7.12.7",
+    "@babel/preset-typescript": "^7.12.7",
+    "@storybook/addon-actions": "^5.3.21",
+    "@storybook/addon-knobs": "^5.3.21",
+    "@storybook/addon-links": "^5.3.21",
     "@storybook/addon-ondevice-actions": "^5.3.23",
     "@storybook/addon-ondevice-knobs": "^5.3.23",
+    "@storybook/preset-typescript": "^3.0.0",
     "@storybook/react-native": "^5.3.23",
     "@storybook/react-native-server": "^5.3.23",
     "babel-loader": "^8.2.1",
+    "fork-ts-checker-webpack-plugin": "^6.0.5",
     "react": "^16.9.0",
-    "react-native": "^0.61.5"
+    "react-native": "^0.61.5",
+    "ts-loader": "^8.0.11"
   },
   "dependencies": {
     "react-dom": "^17.0.1",
