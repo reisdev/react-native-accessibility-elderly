@@ -40,3 +40,17 @@ local.properties
 buck-out/
 \.buckd/
 *.keystore
+
+# Docs resources
+*.pdf
+*_temp*
+*.out*
+*.dvi
+*.toc
+*.bbl
+*.blg
+*.fdb*
+*.lo[gt]
+*.fls
+*.gz
+*.aux
