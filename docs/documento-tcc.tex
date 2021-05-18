@@ -23,14 +23,16 @@
 	]{abntex2}              % Personaliza a capa. Precisa do arquivo ufv.cls para funcionar.
 
 
-		% Pacotes fundamentais
+% Pacotes fundamentais
 \usepackage{abntex2-UFV}        % Personalização para a Universidade Federal de Viçosa
 \usepackage{lmodern}			% Usa a fonte Latin Modern			
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte de saída
 \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{float}				% Posicionamento específico de figuras
 \usepackage{booktabs}           % \toprule, \midrule e \bottomrule para tabelas
+\usepackage{hyperref}
 % Sistema autor-data com títulos nas referências em negrito
 \usepackage[alf,abnt-emphasize=bf]{abntex2cite}	
 
@@ -42,8 +44,8 @@
 \titulo{\emph{UI Framework em React Native acessível para idosos}}
 \autor{Matheus dos Reis de Jesus}
 \local{Viçosa}
-\data{2020}
-\orientador{Lucas Francisco da Matta Vegi}    % redefinido no abntex2-UFV para aceitar Instituição (default = UFV-CRP)
+\data{2021}
+\orientador{Luciano Rodrigues Costa}    % redefinido no abntex2-UFV para aceitar Instituição (default = UFV-CRP)
 %\coorientador{Nome do Coorientador}
 \instituicao{Universidade Federal de Viçosa}
 
@@ -55,7 +57,7 @@
 
 % O preambulo deve conter o tipo do trabalho, o objetivo,
 % o nome da instituição e a área de concentração
-\preambulo{Projeto apresentado à Universidade Federal de Viçosa como parte das exigências para a aprovação na disciplina Seminários I}
+\preambulo{Projeto apresentado à Universidade Federal de Viçosa como parte das exigências para a aprovação na disciplina de Metodologia de Pesquisa}
 % ---
 
 % ---
@@ -165,23 +167,6 @@
 % ---
 
 
-% Lista de siglas e abreviaturas (opcional)
-% sintaxe: \item [sigla] Descrição da sigla
-
-%\begin{siglas}
-%\item[ABNT] Absurdas Normas Técnicas
-%\item[UFV] Universidade Federal de Viçosa
-%\item[CRP] \emph{Campus} de Rio Paranaíba
-%\end{siglas}
-
-% Lista de símbolos (opcional)
-% sintaxe: \item [simbolo] Descrição do símbolo
-
-%\begin{simbolos}
-%\item[$\infty$ ] Infinito
-%\end{simbolos}
-
-
 % inserir o sumario
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
@@ -193,142 +178,191 @@
 % ----------------------------------------------------------
 \textual
 
+\chapter{Introdução}\label{sec:introducao}
 
-%Modifique a estrutura dos capítulos e seções de acordo com a necessidade do seu trabalho
-\chapter{Apresentação}\label{sec:apresentacao}
-
-		Este projeto foi idealizado ao observar, repetidas vezes, meu avô apresentar dificuldades para executar determinadas ações usando um dispositivo móvel. Ao me deparar com isso, lembrei que pessoas da terceira idade geralmente apresentam dificuldade em redigir e ler textos, interagir com campos de entrada ou imagens, seja utilizando um dispositivo mais simples ou um \textit{smartphone}.
-
-\par
-
-Além do fator idade, existem diversas doenças que tornam ainda mais difíceis as interações de uma pessoa idosa com um dispositivo móvel. Problemas motores, de visão e cognitivos influenciam na capacidade de executar ações que são essencias para possibilitar o uso de tais dispositivos. Dito isso, surge uma necessidade de propor soluções que sejam capazes de sanar essas dificuldades.
-
-		\par
-
-\chapter{Referencial Teórico}\label{sec:referencialTeorico}		
-
-		Em uma conversa com o orientador deste projeto, Lucas Vegi, conheci a tese de mestrado desenvolvida pela Dâmaris Arruda: Um \textit{framework} para facilitar as interações entre dispositivos móveis e pessoas idosas.
+Segundo a \emph{30ª Pesquisa Anual de Uso de TI},
+realizada pela \emph{Fundação Getúlio Vargas}\cite{pesquisati30}, em abril de 2019 o Brasil já contava com aproximadamente 230 milhões de dispositivos móveis, pouco mais de 1 dispositivo móvel por habitante. Já na 31ª edição\cite{pesquisati31}, de junho de 2020, esse valor passou para de 342 milhões de dispositivos móveis, equivalente a aproximadamente 1,6 dispositivos por habitante. De acordo com dados do sensos realizados pelo IBGE, a população idosa(pessoas adultas acima de 65 anos) no Brasil cresceu de 8.9 milhões em 2017 para 9.8 milhões em 2020, um aumento de aproximadamente 11\% em 3 anos\cite{ibge}.
 
 \par
 
-		Em seu trabalho, Dâmaris buscou elencar as ações em dispositivos móveis que os idosos enfrentam maior dificuldade para executar. Após testes realizados em um trabalho conjunto com o \emph{Programa da Terceira Idade}, um projeto da Prefeitura Municipal de Viçosa - MG, foram identificadas tais ações: movimento de pinça, movimento de rotação e digitação.
-
-Dadas as informações obtidas pelos testes realizados, foi então desenvolvido um \textit{framework} de interface de usuário nativo para \textit{Android}. O projeto contém um conjunto de componentes visuais com o objetivo de facilitar ações que geralmente exigem mais coordenação motora e acuidade visual.
+Com o crescimento vertiginoso do uso de dispositivos móveis, há um aumento da demanda por aplicações que possam atender às mais diversas necessidades das pessoas que os utilizam. Levando em consideração os dados citados previamente, é plausível considerar que boa parte dos novos dispositivos pertençam à pessoas da terceira idade, que comumente apresentam dificuldade para executar diversas ações que são essenciais na interação de dispositivos móveis, em especial, os com tela tátil. Além dos fatores mais comuns, pessoas idosas apresentam problemas motores, de visão e cognitivos, que tornam ainda mais difíceis essas interações. Segundo Claudia Zapata \emph{et al}, “O desenvolvimento de aplicações para dispositivo móveis se tornou uma forma de melhorar a qualidade de vida para idosos, já que é possível aplicar a vários setores como a medicina, por exemplo”\cite{elderlyMainChallenges}.
 
 \par
+
+Este projeto foi idealizado a partir de um trabalho anterior: \textit{Um framework para facilitar as interações entre dispositivos móveis e pessoas idosas}\cite{tesedamaris}. Em sua tese, Dâmaris buscou identificar as ações em dispositivos móveis que os idosos enfrentam maior dificuldade para executar. Para conseguir identificar algumas dessas dificuldades, foram realizados testes em um trabalho conjunto com o \emph{Programa da Terceira Idade}, um projeto da Prefeitura Municipal de Viçosa - MG. Através destes testes foram identificadas algumas das ações que os idosos mais apresentam dificuldade em executar: o movimento de pinça, movimento de rotação e digitação.
+
+\par
+
+Com o resultado das pesquisas em mãos, foi então criado o \textit{ElderlyFrame}\cite{elderlyframe}, um \textit{framework} de interface de usuário nativo para \textit{Android}. O projeto contém um conjunto de componentes visuais com o objetivo de facilitar ações que geralmente exigem mais coordenação motora e acuidade visual. A seguir, temos os exemplos destes componentes que foram implementados.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[height=0.4\linewidth]{touchable-zoom.png}
+	\end{center}
+	\caption[Touchable Zoom]{Componente de Zoom por toque do \textit{ElderlyFrame}}
+	\label{fig:touchableZoom}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[height=0.5\linewidth]{zoom-bar.png}
+	\end{center}
+	\caption[Componente de zoom com barra]{Componente de Zoom por barra do \textit{ElderlyFrame}}
+	\label{fig:zoomBar}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[height=0.5\linewidth]{rotation.png}
+	\end{center}
+	\caption[Componente de Rotação com apenas um dedo]{Componente de rotação com apenas um dedo do \textit{ElderlyFrame}}
+	\label{fig:rotation}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[height=0.5\linewidth]{speech-to-text.png}
+	\end{center}
+	\caption[Speech To Text]{Componente de conversão de voz para texto (\textit{speech-to-text}) do \textit{ElderlyFrame}}
+	\label{fig:speechToText}
+\end{figure}
 
 \chapter{Justificativa}\label{sec:justificativa}
 
-Com o crescimento vertiginoso do uso de dispositivos móveis, há um aumento da demanda por aplicações que possam atender às mais diversas necessidades das pessoas que os utilizam. Segundo a \emph{31ª Pesquisa Anual de Uso de TI}, realizada pela \emph{Fundação Getúlio Vargas}, que pode ser consultada na seção de referências deste documento, publicada em junho de 2020, o Brasil já conta com pelo menos 342 milhões de dispositivos móveis, equivalente a 1,6 dispositivo móvel por habitante.
+Atualmente existe implementações para \textit{React Native} de ferramentas que facilitam a presença de recursos de acessibilidade em aplicações para dispositivos móveis. Porém, estas ferramentas utilizam apenas recursos já existentes, funcionando apenas como facilitadoras. Este é um diferencial do \textit{ElderlyFrame}, e consequentemente deste projeto, que traz uma nova abordagem para interações que pessoas idosas apresentam dificuldade em executar.
 
 \par
 
-	Como citado anteriormente, em sua Tese, Dâmaris criou um \textit{framework} de interface de usuário nativo para \textit{Android}, e isso limita a utilização do artefato produzido. A escolha do tema deste projeto foi feita buscando possibilitar o uso da ferramenta em diferentes plataformas.
+Em pesquisas realizadas para elaboração deste projeto, somente foram encontrados artigos e teses que abordavam a teoria da acessibilidade para idosos. Conteúdos que abordavam a falta de inclusão digital da terceira idade,  a falta de recursos de acessibilidade em aplicações para dispositivos móveis e afins. Porém, foi notada uma carência de projetos que de fato produzissem algo para mudar este cenário. O \textit{ElderlyFrame} foi construído com este propósito, e essa também é uma das motivações desta pesquisa.
 
 \par
 
-\chapter{Objetivo}\label{sec:objetivo}
+Como dito anteriormente, o \textit{ElderlyFrame} é um \textit{framework} de interface de usuário nativo para \textit{Android}, e este é um fator limitante da sua utilização. Ampliar o impacto do projeto e abranger uma maior parcela do cenário de desenvolvimento para dispositivos móveis são fatores motivadores para este projeto. Para isto, decidiu-se por focar em uma tecnologia de desenvolvimento multiplataforma. Tecnologias de desenvolvimento multiplataforma permitem o desenvolvimento de aplicações para diferentes ambientes, como \emph{Android} e \emph{iOS}, utilizando uma mesma base de código. A tecnologia escolhida para análise nesta pesquisa foi \textit{React Native}, pois é utilizado em aplicações com grande representatividade, como \textit{Instagram}, \textit{AirBnb} e \textit{Uber}.
 
-Dado o fato de que o \textit{framework} criado pela Dâmaris tem uso limitado apenas em aplicações nativas da plataforma \textit{Android}, a proposta deste trabalho é implementar a mesma ferramenta usando uma tecnologia de desenvolvimento híbrido, que possibilite a utilização em múltiplas plataformas, como \textit{Android} e \textit{iOS}, sem necessidade de escrever implementações específicas para cada uma delas.
-
-\chapter{Metodologia}\label{sec:metodologia}		
-
-Através de pesquisas em diferentes fontes e uma análise minusciosa, a tecnologia híbrida escolhida para desenvolvimento deste \textit{framework} foi \textit{React Native}, que atualmente é mantido pelo \textit{Facebook}, e é utilizado em aplicações amplamento utilizadas, como \textit{Instagram}, \textit{AirBnb} e \textit{Uber}. A imagem a seguir mostra que o repositório do \textit{React Native}, no \textit{GitHub}, tem a maior quantidade de \textit{forks} e o segundo maior número de \textit{stars} e \textit{issues}, quando comparado com outras tecnologias de desenvolvimento híbrido, a saber: \textit{Flutter},\textit{Ionic} e \textit{Kivy}.
-
-	\par
-
-\begin{figure}[h]
-	\begin{center}	
-		\includegraphics[width=.9\linewidth]{github-compare.png}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=1\linewidth]{github-compare.png}
 	\end{center}
 	\caption[GitHub Compare]{Comparação entre as estatísticas dos repositórios de tecnologias de desenvolvimento híbrido: \textit{React Native}, \textit{Flutter}, \textit{Ionic} e \textit{Kivy}}
 	\label{fig:githubCompare}
-	\legend{Fonte: \textit{GitHub Compare}. Disponível em https://githubcompare.com/}
+	\legend{Fonte: \textit{GitHub Compare}. Disponível em \url{https://www.githubcompare.com/facebook/react-native+flutter/flutter+ionic-team/ionic-framework+kivy/kivy/}}
 \end{figure}
 
+A imagem acima mostra que o repositório do \textit{React Native}, no \textit{GitHub}, tem a maior quantidade de \textit{forks} e o 2º maior número de \textit{stars} e \textit{issues}, quando comparado com outras tecnologias de desenvolvimento multiplataforma, a saber: \textit{Flutter},\textit{Ionic} e \textit{Kivy}.
+
+Além das estatísticas apresentadas no parágrafo anterior, foi usada como uma base uma pesquisa realizada pela \textit{Statista}, que aborda o uso de \textit{frameworks} para desenvolvimento multiplataforma. Como pode ser observado, o \textit{React Native} representa aproximadamente 42\% do uso em aplicações. Em um cenário com tantas opções, 42\% é um valor significativamente grande e que poderia ampliar o impacto dos resultados deste projeto.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[height=.5\linewidth]{mobile-frameworks-statista.png}
+	\end{center}
+	\caption[GitHub Compare]{Comparação entre as estatísticas de uso de \textit{frameworks} para desenvolvimento multiplataforma}
+	\label{fig:statistaResearch}
+	\legend{Fonte: \textit{Statista}. Disponível em
+		\url{https://www.statista.com/statistics/869224/worldwide-software-developer-working-hours/}}
+\end{figure}
+
+\chapter{Objetivo}\label{sec:objetivos}
+
+\section{Geral}
+
+A proposta deste trabalho é analisar a viabilidade de implementação do \emph{ElderlyFrame} utilizando \emph{React Native}, uma tecnologia para desenvolvimento híbrido para dispositivos móveis.
+
+\section{Específicos}
+
+Além da análise de viabilidade serão verificados os pontos em que o \emph{React Native} pode não ser suficiente para suprir as necessidades de implementação da ferramenta. A busca por novos recursos para serem adicionados ao escopo também será abordada, para complementar o trabalho.
+
 \par
-		
-No \textit{ElderlyFrame}, nome dado ao projeto citado anteriormente neste trabalho, foram implementados componentes que facilitam atividades de zoom, rotação de elementos e também digitação de texto. A proposta do \emph{react-native-elderly}, nome dado ao artefato que será produzido ao fim deste trabalho, é implementar o mesmo conjunto de componentes utilizando a biblioteca \textit{React Native}.		 
+
+De acordo com Khan Kallimulah et al, "A tecnologia no campo da saúde deu um passo à frente para facilitar a manutenção da saúde no dia a dia"\cite{KALIMULLAH2017352}. Para ir além da análise conceitual, considera-se, para esse projeto, a criação de uma prova de conceito para validar se as implementações da ferramenta de fato atendem às necessidades mais comuns de pessoas idosas.
+
+\chapter{Metodologia}\label{sec:metodologia}
+
+
+Para análise da viabilidade do projeto foi escolhido o método de revisão bibliográfica. Buscar por fontes que validem ou contradigam a ideia desta pesquisa é essencial para refinamento de ideias. Encontrar trabalhos anteriores e em processo também se faz necessário, não apenas para validar a ideia, como também para ampliar a visão sobre a ferramenta e seu impacto.
 
 \chapter{Cronograma}\label{sec:cronograma}
 
-Para execução deste projeto, estão estipuladas abaixo as tarefas e os momentos em que elas serão realizadas, assim como o total de horas para cada grupo de atividades. Na tabela a seguir temos o planejamento para os 8 meses pelos quais este trabalho irá se estender:
+Para execução deste projeto, foram estabelecidas as atividades a serem realizadas e os meses que em que irão ocorrer durante o período deste projeto. O quadro a seguir apresenta essa relação:
 
 \par
 
 \begin{table}[htbp]
-  \centering
-    \caption[Cronograma mensal]{Cronograma do Projeto em Meses}
-    \label{tab:cronogramaMensal}
-    \begin{tabular}{lcccccccc} %|c|c|c|c|c|c|c|c|c|c|c|c
-    \toprule
-    \textbf{Atividade} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
-    \midrule
-        Análise do Tema & $\bullet$ & $\bullet$ & & & & & &\\
-        Revisão Literária & & $\bullet$ & $\bullet$ & & & $\bullet$ & $\bullet$ & $\bullet$ \\
-        Projeto & & & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ \\
-        Desenvolvimento & & & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & & \\
-        Documentação & & & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & & \\
-    \bottomrule
-    \end{tabular}
-    \fonte{Próprio Autor}
-\end{table}
-
-As demandas de tempo(em horas) estimadas para orientação, desenvolvimento e revisão da literatura, do projeto escrito e demais artefafos produzidos são:
-
-\par
-
-\begin{table}[htpb]
 	\centering
-	\caption[Cronograma em horas]{Estimativa de tempo para cada atividade}
-	\label{tab:cronogramaHoras}
-	\begin{tabular}{lcc}
-	\toprule
-		\textbf{Item} & \textbf{Custeio} & \textbf{Tempo(horas)} \\
-	\midrule
-		Orientação & Governo Federal & 40 \\
-		Projeto & Próprio & 60 \\
-		Revisão & Próprio & 20 \\
-	\bottomrule
-		Total & & 120
-	\end{tabular}
-	\fonte{Próprio autor}
-\end{table}
-
-\chapter{Orçamento}\label{sec:orcamento}
-
-Estão orçados para este projeto os itens contidos na tabela abaixo, acompanhados de  seus respectivos financiadores e valores:
-
-\par
-
-\begin{table}[htpb]
-	\centering
-		\caption[Orçamento]{Orçamento financeiro}
-		\label{tab:orcamento}
-		\begin{tabular}{lccc}
+	\caption[Cronograma mensal]{Cronograma do Projeto em Meses}
+	\label{tab:cronogramaMensal}
+	\begin{tabular}{lcccccccc} %|c|c|c|c|c|c|c|c|c|c|c|c
 		\toprule
-		\textbf{Item} & \textbf{Custeio} & \textbf{Custo} \\
+		\textbf{Atividade}    & \textbf{Fev} & \textbf{Mar} & \textbf{Abr} & \textbf{Mai} & \textbf{Jul} & \textbf{Ago} & \textbf{Set} & \textbf{Out} \\
 		\midrule
-			Computador Pessoal & Próprio & R\$ 5000  \\
-			Conexão com a \textit{Internet} & Próprio & R\$ 900 \\
-			Licença para publicação na Play Store & Próprio & ~R\$140 \\
+		Análise do Tema       & $\bullet$    & $\bullet$    & $\bullet$    &              &              &              &              &              \\
+		Revisão Bibliográfica &              & $\bullet$    & $\bullet$    & $\bullet$    & $\bullet$    &              &              &              \\
+		Redação do Projeto    &              &              & $\bullet$    & $\bullet$    & $\bullet$    & $\bullet$    & $\bullet$    & $\bullet$    \\
+		Implementação         &              &              &              & $\bullet$    & $\bullet$    & $\bullet$    &              &              \\
+		Prova de Conceito     &              &              &              &              & $\bullet$    & $\bullet$    & $\bullet$    &              \\
+		Validação da POC      &              &              &              &              &              & $\bullet$    & $\bullet$    & $\bullet$    \\
 		\bottomrule
-			Total & & R\$6040 \\
-		\end{tabular}%
-		\fonte{Próprio Autor}
-\end{table}%
+	\end{tabular}
+	\fonte{Próprio Autor}
+\end{table}
+
+
+% As demandas de tempo(em horas) estimadas para orientação, desenvolvimento e revisão da literatura, do projeto escrito e demais artefatos produzidos são:
+
+% \par
+
+% \begin{table}[htpb]
+% 	\centering
+% 	\caption[Cronograma em horas]{Estimativa de tempo para cada atividade}
+% 	\label{tab:cronogramaHoras}
+% 	\begin{tabular}{lcc}
+% 		\toprule
+% 		\textbf{Item} & \textbf{Custeio} & \textbf{Tempo(horas)} \\
+% 		\midrule
+% 		Orientação    & Governo Federal  & 40                    \\
+% 		Projeto       & Próprio          & 60                    \\
+% 		Revisão       & Próprio          & 20                    \\
+% 		\bottomrule
+% 		Total         &                  & 120
+% 	\end{tabular}
+% 	\fonte{Próprio autor}
+% \end{table}
+
+% \chapter{Orçamento}\label{sec:orcamento}
+
+% Estão orçados para este projeto os itens contidos na tabela abaixo, acompanhados de seus respectivos financiadores e valores:
+
+% \par
+
+% \begin{table}[htpb]
+% 	\centering
+% 	\caption[Orçamento]{Orçamento financeiro}
+% 	\label{tab:orcamento}
+% 	\begin{tabular}{lccc}
+% 		\toprule
+% 		\textbf{Item}                         & \textbf{Custeio} & \textbf{Custo} \\
+% 		\midrule
+% 		Computador Pessoal                    & Próprio          & R\$ 5000       \\
+% 		Conexão com a \textit{Internet}       & Próprio          & R\$ 900        \\
+% 		Licença para publicação na Play Store & Próprio          & ~R\$140        \\
+% 		\bottomrule
+% 		Total                                 &                  & R\$6040        \\
+% 	\end{tabular}%
+% 	\fonte{Próprio Autor}
+% \end{table}%
 
 % \chapter{Resultados Esperados}\label{sec:resultEsperados}
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS
 % ----------------------------------------------------------
-        \postextual
+\postextual
 
 % Referências bibliográficas
-\bibliographystyle{abbrv}
+
+%\bibliographystyle{abbrv}
 \bibliography{referencias}
-		
+
 % Caso sejam necessários apêndices ou anexos em seu documento
 % Use os ambientes abaixo
 
