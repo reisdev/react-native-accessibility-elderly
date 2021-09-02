@@ -1,21 +1,29 @@
 {
-  "name": "react-native-elderly",
-  "title": "React Native Elderly",
-  "version": "0.0.1",
-  "description": "Framework de interface de usuário para React Native com foco em acessibilidade para idosos",
+  "name": "react-native-elderly-frame",
+  "title": "React Native ElderlyFrame",
+  "version": "0.0.7",
+  "description": "UI Framework em React Native com componentes focados em acessibilidade para idosos em dispositivos móveis",
   "main": "index.js",
+  "workspaces": [
+    "src",
+    "example"
+  ],
   "files": [
     "README.md",
+    "LICENSE",
+    "src",
     "android",
-    "index.js",
     "ios",
     "react-native-elderly.podspec"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook",
+    "prestorybook": "rnstl",
+    "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook",
-    "run-android": "cd example && react-native run-android"
+    "demo-android": "cd example && react-native run-android",
+    "demo-ios": "cd example && react-native run-ios",
+    "postpack": "cd example && npm i"
   },
   "repository": {
     "type": "git",
@@ -23,15 +31,18 @@
     "baseUrl": "https://github.com/reisdev/react-native-elderly"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "ui",
+    "mobile",
+    "framework"
   ],
   "author": {
+    "username": "reisdev",
     "name": "Matheus dos Reis de Jesus",
     "email": "matheusdrdj@gmail.com"
   },
   "license": "MIT",
   "licenseFilename": "LICENSE",
-  "readmeFilename": "README.md",
   "peerDependencies": {
     "react": "^16.8.1",
     "react-native": ">=0.60.0-rc.0 <1.0.x"
@@ -45,18 +56,30 @@
     "@storybook/addon-knobs": "^5.3.21",
     "@storybook/addon-links": "^5.3.21",
     "@storybook/addon-ondevice-actions": "^5.3.23",
-    "@storybook/addon-ondevice-knobs": "^5.3.23",
+    "@storybook/addon-ondevice-knobs": "^5.3.25",
     "@storybook/preset-typescript": "^3.0.0",
-    "@storybook/react-native": "^5.3.23",
+    "@storybook/react-native": "^5.3.25",
     "@storybook/react-native-server": "^5.3.23",
     "babel-loader": "^8.2.1",
     "fork-ts-checker-webpack-plugin": "^6.0.5",
-    "react": "^16.9.0",
-    "react-native": "^0.62.3",
+    "react": "^16.11.0",
+    "react-native": "^0.65.0",
     "ts-loader": "^8.0.11"
   },
   "dependencies": {
-    "react-dom": "^17.0.1",
+    "@react-native-community/cli-platform-android": "^5.0.1",
+    "@react-native-community/slider": "^3.0.3",
+    "@types/react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-native-storybook-loader": "^2.0.4",
     "typescript": "^4.1.2"
+  },
+  "bugs": {
+    "url": "https://github.com/reisdev/react-native-elderly/issues"
+  },
+  "homepage": "https://github.com/reisdev/react-native-elderly#readme",
+  "directories": {
+    "doc": "docs",
+    "example": "example"
   }
 }

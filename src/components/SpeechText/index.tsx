@@ -1,10 +1,21 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, TextInput, StyleSheet } from 'react-native'
 
-export default function SpeechText(): React.ReactElement<any> {
+export function SpeechText({ Icon }): React.ReactElement<any> {
     return (
-        <View>
-            <Text></Text>
+        <View style={styles.container}>
+            <Icon />
+            <TextInput style={styles.input} />
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flexDirection: "row",
+        alignItems: "stretch"
+    },
+    input: {
+        flex: 1,
+    }
+})

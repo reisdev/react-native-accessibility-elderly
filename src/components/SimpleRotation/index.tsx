@@ -1,7 +1,9 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, NativeModules } from 'react-native'
 
-export default function SimpleRotation(): React.ReactElement<any> {
+const SimpleRotationImage = NativeModules.SimpleRotationImage;
+console.log(SimpleRotationImage);
+export function SimpleRotation(): React.ReactElement<any> {
     return (
         <View>
             <Text></Text>

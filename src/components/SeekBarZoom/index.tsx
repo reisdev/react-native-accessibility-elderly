@@ -1,10 +1,12 @@
+import Slider from '@react-native-community/slider'
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 
-export default function SeekBarZoom(): React.ReactElement<any> {
+export function SeekBarZoom({ children }): React.ReactElement<any> {
     return (
         <View>
-            <Text></Text>
+            {children}
+            <Slider minimumValue={0.1} maximumValue={4.0} />
         </View>
     )
 }
