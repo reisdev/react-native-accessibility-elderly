@@ -41,11 +41,11 @@
 % ---
 
 % Informações de dados para CAPA e FOLHA DE ROSTO
-\titulo{\emph{UI Framework em React Native acessível para idosos}}
+\titulo{\emph{Desenvolvimento de um UI Framework em React Native com componentes focados em acessibilidade para idosos em dispositivos móveis}}
 \autor{Matheus dos Reis de Jesus}
 \local{Viçosa}
 \data{2021}
-\orientador{Luciano Rodrigues Costa}    % redefinido no abntex2-UFV para aceitar Instituição (default = UFV-CRP)
+\orientador{Lucas Francisco da Matta Vegi}    % redefinido no abntex2-UFV para aceitar Instituição (default = UFV-CRP)
 %\coorientador{Nome do Coorientador}
 \instituicao{Universidade Federal de Viçosa}
 
@@ -57,7 +57,7 @@
 
 % O preambulo deve conter o tipo do trabalho, o objetivo,
 % o nome da instituição e a área de concentração
-\preambulo{Projeto apresentado à Universidade Federal de Viçosa como parte das exigências para a aprovação na disciplina de Metodologia de Pesquisa}
+\preambulo{Projeto apresentado à Universidade Federal de Viçosa como parte das exigências para a aprovação na disciplina Seminários II}
 % ---
 
 % ---
@@ -229,7 +229,7 @@ Com o resultado das pesquisas em mãos, foi então criado o \textit{ElderlyFrame
 
 \chapter{Justificativa}\label{sec:justificativa}
 
-Atualmente existe implementações para \textit{React Native} de ferramentas que facilitam a presença de recursos de acessibilidade em aplicações para dispositivos móveis. Porém, estas ferramentas utilizam apenas recursos já existentes, funcionando apenas como facilitadoras. Este é um diferencial do \textit{ElderlyFrame}, e consequentemente deste projeto, que traz uma nova abordagem para interações que pessoas idosas apresentam dificuldade em executar.
+Atualmente existem implementações para \textit{React Native} de ferramentas que facilitam a presença de recursos de acessibilidade em aplicações para dispositivos móveis. Porém, estas ferramentas utilizam apenas recursos já existentes, funcionando apenas como facilitadoras. Este é um diferencial do \textit{ElderlyFrame}, e consequentemente deste projeto, que traz uma nova abordagem para interações que pessoas idosas apresentam dificuldade em executar.
 
 \par
 
@@ -266,20 +266,28 @@ Além das estatísticas apresentadas no parágrafo anterior, foi usada como uma 
 
 \section{Geral}
 
-A proposta deste trabalho é analisar a viabilidade de implementação do \emph{ElderlyFrame} utilizando \emph{React Native}, uma tecnologia para desenvolvimento híbrido para dispositivos móveis.
+A proposta deste trabalho é implementar o \emph{ElderlyFrame} utilizando \emph{React Native}, uma tecnologia para desenvolvimento híbrido para dispositivos móveis, visando ampliar o impacto do mesmo e criando novas possibilidades de uso da ferramenta.
 
 \section{Específicos}
 
-Além da análise de viabilidade serão verificados os pontos em que o \emph{React Native} pode não ser suficiente para suprir as necessidades de implementação da ferramenta. A busca por novos recursos para serem adicionados ao escopo também será abordada, para complementar o trabalho.
+Além da análise da implementação, serão verificados os pontos em que o \emph{React Native} pode não ser suficiente para suprir as necessidades de implementação, buscar por novos recursos para serem adicionados ao escopo e criar uma aplicação que possibilite a validação do artefato a ser criado.
+
+
+\chapter{Referencial Teórico}\label{sec:referencialTeorico}
+
+Em uma conversa com o orientador deste projeto, Lucas Vegi, conheci a tese de mestrado desenvolvida pela Dâmaris Arruda: Um \textit{framework} para facilitar as interações entre dispositivos móveis e pessoas idosas\cite{tesedamaris}.
 
 \par
 
-De acordo com Khan Kallimulah et al, "A tecnologia no campo da saúde deu um passo à frente para facilitar a manutenção da saúde no dia a dia"\cite{KALIMULLAH2017352}. Para ir além da análise conceitual, considera-se, para esse projeto, a criação de uma prova de conceito para validar se as implementações da ferramenta de fato atendem às necessidades mais comuns de pessoas idosas.
+Em seu trabalho, Dâmaris buscou elencar as ações em dispositivos móveis que os idosos enfrentam maior dificuldade para executar. Após testes realizados em um trabalho conjunto com o \emph{Programa da Terceira Idade}, um projeto da Prefeitura Municipal de Viçosa - MG, foram identificadas tais ações: movimento de pinça, movimento de rotação e digitação.
+
+\par
+
+Dadas as informações obtidas pelos testes realizados, foi então desenvolvido um \textit{framework} de interface de usuário nativo para \textit{Android}. O projeto contém um conjunto de componentes visuais com o objetivo de facilitar ações que geralmente exigem mais coordenação motora e acuidade visual.
 
 \chapter{Metodologia}\label{sec:metodologia}
 
-
-Para análise da viabilidade do projeto foi escolhido o método de revisão bibliográfica. Buscar por fontes que validem ou contradigam a ideia desta pesquisa é essencial para refinamento de ideias. Encontrar trabalhos anteriores e em processo também se faz necessário, não apenas para validar a ideia, como também para ampliar a visão sobre a ferramenta e seu impacto.
+Para a implementação deste projeto será utilizada a tecnologia \emph{React Native}, na qual serão implementados os componentes utilizando as linguagens de programação \emph{Javascript} e \emph{Typescript}. Todos os artefatos produzidos estão disponíveis em um repositório público na plataforma \emph{GitHub} e pode ser acessado através deste link: \href{https://github.com/reisdev/react-native-elderly-frame/}{https://github.com/reisdev/react-native-elderly-frame/}.
 
 \chapter{Cronograma}\label{sec:cronograma}
 
@@ -293,14 +301,14 @@ Para execução deste projeto, foram estabelecidas as atividades a serem realiza
 	\label{tab:cronogramaMensal}
 	\begin{tabular}{lcccccccc} %|c|c|c|c|c|c|c|c|c|c|c|c
 		\toprule
-		\textbf{Atividade}    & \textbf{Fev} & \textbf{Mar} & \textbf{Abr} & \textbf{Mai} & \textbf{Jul} & \textbf{Ago} & \textbf{Set} & \textbf{Out} \\
+		\textbf{Atividade} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
 		\midrule
-		Análise do Tema       & $\bullet$    & $\bullet$    & $\bullet$    &              &              &              &              &              \\
-		Revisão Bibliográfica &              & $\bullet$    & $\bullet$    & $\bullet$    & $\bullet$    &              &              &              \\
-		Redação do Projeto    &              &              & $\bullet$    & $\bullet$    & $\bullet$    & $\bullet$    & $\bullet$    & $\bullet$    \\
-		Implementação         &              &              &              & $\bullet$    & $\bullet$    & $\bullet$    &              &              \\
-		Prova de Conceito     &              &              &              &              & $\bullet$    & $\bullet$    & $\bullet$    &              \\
-		Validação da POC      &              &              &              &              &              & $\bullet$    & $\bullet$    & $\bullet$    \\
+		Análise do Tema    & $\bullet$  & $\bullet$  &            &            &            &            &            &            \\
+		Revisão Literária  &            & $\bullet$  & $\bullet$  &            &            & $\bullet$  & $\bullet$  &            \\
+		Implementação      &            & $\bullet$  & $\bullet$  & $\bullet$  & $\bullet$  & $\bullet$  & $\bullet$  &            \\
+		Documentação       &            &            & $\bullet$  & $\bullet$  & $\bullet$  & $\bullet$  & $\bullet$  & $\bullet$  \\
+		Monografia         &            &            & $\bullet$  & $\bullet$  & $\bullet$  & $\bullet$  & $\bullet$  & $\bullet$  \\
+		Testes             &            &            &            &            &            & $\bullet$  & $\bullet$  & $\bullet$  \\
 		\bottomrule
 	\end{tabular}
 	\fonte{Próprio Autor}

@@ -1,37 +1,37 @@
 {
-  "name": "example",
-  "version": "0.0.1",
-  "private": true,
-  "author": {
-    "name": "Matheus dos Reis de Jesus",
-    "username": "reisdev",
-    "email": "matheusdrdj@gmail.com"
-  },
+  "main": "index.js",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "web": "expo start --web",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint .",
     "postinstall": "react-native link"
   },
   "dependencies": {
-    "react": "17.0.2",
-    "react-native": "0.65.0",
-    "react-native-elderly-frame": "file:../"
+    "expo": "~41.0.1",
+    "expo-updates": "~0.5.4",
+    "expo-splash-screen": "~0.10.2",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-native": "~0.63.4",
+    "react-native-gesture-handler": "~1.10.2",
+    "react-native-reanimated": "~2.1.0",
+    "react-native-screens": "~3.0.0",
+    "react-native-unimodules": "~0.13.3",
+    "react-native-web": "~0.13.12",
+    "react-native-elderly-frame": "file:react-native-elderly-frame-0.0.7.tgz"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
-    "@babel/runtime": "^7.12.5",
-    "@react-native-community/eslint-config": "^2.0.0",
-    "babel-jest": "^26.6.3",
-    "eslint": "7.14.0",
-    "jest": "^26.6.3",
-    "metro-react-native-babel-preset": "^0.66.0",
-    "react-native-codegen": "^0.0.7",
-    "react-test-renderer": "17.0.1"
+    "@babel/core": "^7.9.0",
+    "@types/react": "~16.9.35",
+    "@types/react-native": "~0.63.2",
+    "babel-preset-expo": "~8.3.0",
+    "jest-expo": "~41.0.0",
+    "typescript": "~4.0.0"
   },
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "private": true
 }

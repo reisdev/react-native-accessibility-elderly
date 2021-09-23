@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./src/",
+        "allowSyntheticDefaultImports": true,
+        "paths": {
+            "@components/*": ["components/*"]
+        },
+        "target": "ES5",
+        "jsx": "react",
+        "esModuleInterop": true
+    },
+    "include": [ "src/**/*.tsx?" ],
+    "exclude": [ "node_modules"]
+}

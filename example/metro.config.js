@@ -1,21 +1,10 @@
-/**
- * Metro configuration for React Native
- * https://github.com/facebook/react-native
- *
- * @format
- */
-const path = require('path');
+// Learn more https://docs.expo.io/guides/customizing-metro
+const { getDefaultConfig } = require("expo/metro-config");
+const path = require("path");
 
-module.exports = {
-  getProjectRoots() {
-    return [path.resolve(__dirname), path.resolve(__dirname, '../')];
+module.exports = Object.assign(getDefaultConfig(__dirname), {
+  resolver: {
+    extraNodeModules: path.resolve(__dirname, "/../module"),
   },
-  transformer: {
-    getTransformOptions: async () => ({
-      transform: {
-        experimentalImportSupport: false,
-        inlineRequires: true,
-      },
-    }),
-  },
-};
+  watchFolders: [path.resolve(__dirname + "/../module")],
+});
