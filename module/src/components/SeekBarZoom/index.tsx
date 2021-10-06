@@ -1,10 +1,15 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React, { useState } from 'react'
+import { View } from 'react-native'
+import Slider from "@react-native-community/slider";
 
-export function SeekBarZoom({ children }): React.ReactElement<any> {
+export const SeekBarZoom: React.FC = ({ children }) => {
+    const [scale, setScale] = useState<number>(1.0);
     return (
         <View>
-            <Text> This is a text </Text>
+            <View style={{ transform: [{ scale }] }} >
+                {children}
+            </View>
+            <Slider minimumValue={0.1} maximumValue={4.0} step={0.1} onValueChange={setScale} />
         </View>
     )
 }

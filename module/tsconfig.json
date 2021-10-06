@@ -1,14 +1,14 @@
 {
     "compilerOptions": {
-        "baseUrl": "./src/",
+        "baseUrl": "./src",
         "allowSyntheticDefaultImports": true,
         "paths": {
-            "@components/*": ["components/*"]
+            "*": ["src/**/*"]
         },
-        "target": "ES5",
-        "jsx": "react",
-        "esModuleInterop": true
-    },
-    "include": [ "src/**/*.tsx?" ],
-    "exclude": [ "node_modules"]
+        "target": "es6",
+        "jsx": "react-native",
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "skipLibCheck": true
+    }
 }

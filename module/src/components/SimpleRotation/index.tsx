@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-export function SimpleRotation(): React.ReactElement<any> {
+export const SimpleRotation = () => {
     return (
         <View>
-            <Text></Text>
+            <Text>This is simple rotation test</Text>
         </View>
     )
 }

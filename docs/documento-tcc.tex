@@ -33,6 +33,7 @@
 \usepackage{float}				% Posicionamento específico de figuras
 \usepackage{booktabs}           % \toprule, \midrule e \bottomrule para tabelas
 \usepackage{hyperref}
+\usepackage{helvet}
 % Sistema autor-data com títulos nas referências em negrito
 \usepackage[alf,abnt-emphasize=bf]{abntex2cite}	
 
@@ -131,15 +132,36 @@
 % RESUMOS
 
 % resumo em português
-%\begin{resumo}
-% \noindent
-%Insira o resumo aqui
+\begin{resumo}
+	\noindent
 
-%\vspace{\onelineskip}
+	\MakeUppercase{\textbf{Desenvolvimento de um UI Framework em React Native com componentes focados em acessibilidade para idosos em dispositivos móveis}}
 
-%\noindent
-% \textbf{Palavras-chaves}: React Native, Framework, UI , Acessibilidade, UFV.
-%\end{resumo}
+	\vspace{\onelineskip}
+	Lucas Francisco da Matta Vegi (Orientador) \newline
+	Matheus dos Reis de Jesus (Estudante)
+	\vspace{\onelineskip}
+
+	\MakeUppercase{\textbf{Resumo}}
+
+	A constante evolução da tecnologia tem trazido cada vez mais recursos inovadores que têm transformado a maneira como interagimos com o mundo. De um computador de mesa à um dispositivo móvel, a quantidade de recursos que temos à nossa disposição é quase imensurável. Porém, esses recursos têm suas limitações, principalmente por alcançarem públicos diversos e não necessariamente estarem preparados para lidar com as necessidades que estes possuem. Especialmente em dispositivos móveis, grande parte das aplicações não possuem recursos que possibilitem o uso por pessoas com necessidades especiais, como por exemplo pessoas idosas. Tendo isso em mente, o presente projeto foi idealizado para fornecer recursos que possam sanar as principais dificuldades enfrentadas por idosos ao tentar utilizar um dispositivo móvel.
+
+	\vspace{\onelineskip}
+
+	\noindent
+	\MakeUppercase{\textbf{Palavras-chaves}} \newline
+	Acessibilidade, React Native, Framework, UI
+	\vspace{\onelineskip}
+
+	\noindent
+	\MakeUppercase{\textbf{Área de Conhecimento}} \newline
+	1.03.03.04-9 Sistemas de Informação
+	\vspace{\onelineskip}
+
+	\noindent
+	\MakeUppercase{\textbf{Linha de Pesquisa}} \newline
+	DPI-016 – Sistemas de Informação
+\end{resumo}
 
 % resumo em inglês
 %\begin{resumo}[Abstract]
@@ -266,11 +288,11 @@ Além das estatísticas apresentadas no parágrafo anterior, foi usada como uma 
 
 \section{Geral}
 
-A proposta deste trabalho é implementar o \emph{ElderlyFrame} utilizando \emph{React Native}, uma tecnologia para desenvolvimento híbrido para dispositivos móveis, visando ampliar o impacto do mesmo e criando novas possibilidades de uso da ferramenta.
+A proposta deste trabalho é implementar o \emph{ElderlyFrame} utilizando \emph{React Native}, uma tecnologia para desenvolvimento híbrido para dispositivos móveis, visando ampliar o impacto do mesmo e criar novas possibilidades de uso da ferramenta.
 
 \section{Específicos}
 
-Além da análise da implementação, serão verificados os pontos em que o \emph{React Native} pode não ser suficiente para suprir as necessidades de implementação, buscar por novos recursos para serem adicionados ao escopo e criar uma aplicação que possibilite a validação do artefato a ser criado.
+Além da implementação, serão verificados os pontos em que o \emph{React Native} pode não ser suficiente para suprir as necessidades de implementação, buscar por novos recursos para serem adicionados ao escopo e criar uma aplicação que possibilite a validação do artefato a ser criado.
 
 
 \chapter{Referencial Teórico}\label{sec:referencialTeorico}
@@ -287,7 +309,9 @@ Dadas as informações obtidas pelos testes realizados, foi então desenvolvido 
 
 \chapter{Metodologia}\label{sec:metodologia}
 
-Para a implementação deste projeto será utilizada a tecnologia \emph{React Native}, na qual serão implementados os componentes utilizando as linguagens de programação \emph{Javascript} e \emph{Typescript}. Todos os artefatos produzidos estão disponíveis em um repositório público na plataforma \emph{GitHub} e pode ser acessado através deste link: \href{https://github.com/reisdev/react-native-elderly-frame/}{https://github.com/reisdev/react-native-elderly-frame/}.
+Para a implementação deste projeto será utilizada a tecnologia \emph{React Native}, na qual serão implementados os componentes utilizando as linguagens de programação \emph{Javascript} e \emph{Typescript}. Todos os artefatos produzidos estão disponíveis em um repositório público na plataforma \emph{GitHub} e pode ser acessado através do endereço a seguir: \linebreak
+
+\href{https://github.com/reisdev/react-native-elderly-frame/}{https://github.com/reisdev/react-native-elderly-frame/}.
 
 \chapter{Cronograma}\label{sec:cronograma}
 

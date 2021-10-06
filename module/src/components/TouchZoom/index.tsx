@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-export function TouchZoom(): React.ReactElement<any> {
+export const TouchZoom = () => {
     return (
         <View>
-            <Text></Text>
+            <Text>TouchZoom Test</Text>
         </View>
     )
 }

@@ -58,3 +58,4 @@ buck-out/
 *.tgz
 
 .vscode
+.expo*

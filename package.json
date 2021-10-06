@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "scripts": {
+    "android": "yarn workspace app run android",
+    "ios": "yarn workspace app run ios",
+    "start": "yarn workspace app run start",
+    "cleanup": "rm -rf node_modules */node_modules",
+    "postinstall": "cd app/ios && pod install",
+    "postcleanup": "yarn"
+  },
+  "workspaces": {
+    "packages": [
+      "app/",
+      "module/"
+    ]
+  }
+}
