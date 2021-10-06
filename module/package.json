@@ -1,29 +1,25 @@
 {
   "name": "react-native-elderly-frame",
   "title": "React Native ElderlyFrame",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "UI Framework em React Native com componentes focados em acessibilidade para idosos em dispositivos móveis",
   "main": "index.js",
-  "workspaces": [
-    "src",
-    "example"
-  ],
+  "types": "typings/index.d.ts",
   "files": [
     "README.md",
     "LICENSE",
     "src",
-    "android",
-    "ios",
-    "react-native-elderly.podspec",
-    "index.d.ts"
+    "typings",
+    "index.js",
+    "package.json",
+    "tsconfig.json"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prestorybook": "rnstl",
-    "storybook": "start-storybook -p 7007",
-    "build-storybook": "build-storybook",
     "demo-android": "cd example && react-native run-android",
-    "demo-ios": "cd example && react-native run-ios"
+    "demo-ios": "cd example && react-native run-ios",
+    "storybook": "start-storybook -p 7007",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -44,43 +40,31 @@
   "license": "MIT",
   "licenseFilename": "LICENSE",
   "peerDependencies": {
-    "react": "^16.8.1",
-    "react-native": ">=0.60.0-rc.0 <1.0.x"
+    "@react-native-community/slider": "^3.0.3",
+    "@react-native-voice/voice": "^3.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/preset-env": "^7.12.7",
     "@babel/preset-react": "^7.12.7",
     "@babel/preset-typescript": "^7.12.7",
-    "@storybook/addon-actions": "^5.3.21",
-    "@storybook/addon-knobs": "^5.3.21",
-    "@storybook/addon-links": "^5.3.21",
-    "@storybook/addon-ondevice-actions": "^5.3.23",
-    "@storybook/addon-ondevice-knobs": "^5.3.25",
-    "@storybook/preset-typescript": "^3.0.0",
-    "@storybook/react-native": "^5.3.25",
-    "@storybook/react-native-server": "^5.3.23",
     "babel-loader": "^8.2.1",
-    "fork-ts-checker-webpack-plugin": "^6.0.5",
-    "react": "^16.11.0",
-    "react-native": "^0.63.4",
     "ts-loader": "^8.0.11"
   },
   "dependencies": {
     "@react-native-community/cli-platform-android": "^5.0.1",
     "@react-native-community/slider": "^3.0.3",
-    "@types/react": "^16.11.0",
-    "@types/react-native": "^0.65.0",
-    "react-dom": "^16.11.0",
-    "react-native-storybook-loader": "^2.0.4",
+    "@react-native-voice/voice": "^3.2.2",
+    "@types/react": "^16.14.0",
+    "@types/react-native": "^0.63.4",
+    "react": "~16.13.1",
+    "react-dom": "~16.13.1",
+    "react-native": "~0.63.4",
+    "react-native-vector-icons": "^8.1.0",
     "typescript": "^4.1.2"
   },
   "bugs": {
     "url": "https://github.com/reisdev/react-native-elderly/issues"
   },
-  "homepage": "https://github.com/reisdev/react-native-elderly#readme",
-  "directories": {
-    "doc": "docs",
-    "example": "example"
-  }
+  "homepage": "https://github.com/reisdev/react-native-elderly#readme"
 }
