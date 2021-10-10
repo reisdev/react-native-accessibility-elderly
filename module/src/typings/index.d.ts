@@ -15,7 +15,7 @@ export interface SpeechTextProps extends ReactNative.ViewProps {
 export class SpeechText extends Component<SpeechTextProps> { }
 
 export interface SimpleRotationProps extends ReactNative.ViewProps {
-    element: React.ReactNode
+    radius?: number
 }
 
 export class SimpleRotation extends Component<SimpleRotationProps>{ }

@@ -4,12 +4,11 @@
   "version": "0.0.8",
   "description": "UI Framework em React Native com componentes focados em acessibilidade para idosos em dispositivos móveis",
   "main": "index.js",
-  "types": "typings/index.d.ts",
+  "types": "src/typings/index.d.ts",
   "files": [
     "README.md",
     "LICENSE",
     "src",
-    "typings",
     "index.js",
     "package.json",
     "tsconfig.json"
@@ -60,6 +59,7 @@
     "react": "~16.13.1",
     "react-dom": "~16.13.1",
     "react-native": "~0.63.4",
+    "react-native-gesture-handler": "^1.10.3",
     "react-native-vector-icons": "^8.1.0",
     "typescript": "^4.1.2"
   },

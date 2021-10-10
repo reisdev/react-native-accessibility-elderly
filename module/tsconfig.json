@@ -1,12 +1,14 @@
 {
     "compilerOptions": {
-        "baseUrl": "./src",
+        "baseUrl": "src",
         "allowSyntheticDefaultImports": true,
         "paths": {
-            "*": ["src/**/*"]
+            "@components/*": ["components/*"],
+            "@typings": ["typings"]
         },
         "target": "es6",
         "jsx": "react-native",
+        "moduleResolution": "node",
         "esModuleInterop": true,
         "isolatedModules": true,
         "skipLibCheck": true

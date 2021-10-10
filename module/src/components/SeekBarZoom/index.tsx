@@ -9,7 +9,12 @@ export const SeekBarZoom: React.FC = ({ children }) => {
             <View style={{ transform: [{ scale }] }} >
                 {children}
             </View>
-            <Slider minimumValue={0.1} maximumValue={4.0} step={0.1} onValueChange={setScale} />
+            <Slider
+                minimumValue={1.0}
+                maximumValue={4.0}
+                step={0.1}
+                onValueChange={setScale}
+            />
         </View>
     )
 }
