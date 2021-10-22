@@ -4,7 +4,8 @@
         "allowSyntheticDefaultImports": true,
         "paths": {
             "@components/*": ["components/*"],
-            "@typings": ["typings"]
+            "@typings": ["typings"],
+            "@utils/*": ["utils/*"]
         },
         "target": "es6",
         "jsx": "react-native",

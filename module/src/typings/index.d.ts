@@ -1,21 +1,45 @@
 import React, { Component } from 'react';
 import * as ReactNative from "react-native";
+import { SpeechStartEvent } from '@react-native-voice/voice';
 
 export interface SeekBarZoomProps extends ReactNative.ViewProps { }
 
 export class SeekBarZoom extends Component<SeekBarZoomProps> { }
 
-export interface SpeechTextProps extends ReactNative.ViewProps {
+export interface SpeechToTextProps extends ReactNative.ViewProps {
     /**
      * Element to be shown as the recording icon
      */
     icon?: React.ReactNode
+    /**
+     * Interval(in milliseconds) to verify if still recording
+     */
+    interval?: number
+    /**
+     * If `true`, the text field will be multiline
+     */
+    multiline?: boolean
+
+    /**
+     * Callback for when speech recognition starts
+     */
+    onStartRecognizing?: (e: SpeechStartEvent) => void
+
+    /**
+     * Callback for when an error is thrown
+     */
+    onError?: (error) => void
 }
 
-export class SpeechText extends Component<SpeechTextProps> { }
+export class SpeechToText extends Component<SpeechTextProps> { }
 
 export interface SimpleRotationProps extends ReactNative.ViewProps {
-    radius?: number
+    containerStyle?: ReactNative.StyleProp
+    viewStyle?: ReactNative.StyleProp
+    /**
+     * Callback that receives the angle when the view is rotated
+     */
+    onRotate?: (angle: number) => void
 }
 
 export class SimpleRotation extends Component<SimpleRotationProps>{ }

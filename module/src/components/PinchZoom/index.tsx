@@ -12,7 +12,7 @@ export const PinchZoom: React.FC<PinchZoomProps> = ({ children }) => {
     // Handles the pinch event
     const onPinchGestureEvent = Animated.event(
         [{ nativeEvent: { scale: pinchScale } }],
-        { useNativeDriver: false }
+        { useNativeDriver: true }
     );
 
     // Handle the state change. E.g.: When user stops the pinch
@@ -23,7 +23,7 @@ export const PinchZoom: React.FC<PinchZoomProps> = ({ children }) => {
     }, [lastScale, baseScale, pinchScale, setLastScale]);
 
     return (
-        <View style={{ paddingVertical: 10 }}>
+        <View style={{ margin: 20 }}>
             <PinchGestureHandler
                 onGestureEvent={onPinchGestureEvent}
                 onHandlerStateChange={onPinchHandlerStateChange}

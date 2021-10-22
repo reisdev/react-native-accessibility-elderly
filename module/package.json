@@ -18,7 +18,8 @@
     "demo-android": "cd example && react-native run-android",
     "demo-ios": "cd example && react-native run-ios",
     "storybook": "start-storybook -p 7007",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "unpack": "bash build.sh"
   },
   "repository": {
     "type": "git",
