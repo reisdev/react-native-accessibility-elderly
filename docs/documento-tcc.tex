@@ -33,9 +33,10 @@
 \usepackage{float}				% Posicionamento específico de figuras
 \usepackage{booktabs}           % \toprule, \midrule e \bottomrule para tabelas
 \usepackage{hyperref}
-\usepackage{helvet}
 % Sistema autor-data com títulos nas referências em negrito
-\usepackage[alf,abnt-emphasize=bf]{abntex2cite}	
+% \usepackage[abbrv,abnt-emphasize=bf]{abntex2cite}
+\usepackage[backend=biber, style=numeric]{biblatex}
+\addbibresource{referencias.bib}
 
 % ---
 % CONFIGURAÇÕES DE PACOTES
@@ -177,15 +178,15 @@
 %\end{resumo}
 
 % inserir lista de ilustrações
-%\pdfbookmark[0]{\listfigurename}{lof}
-%\listoffigures*
-%\cleardoublepage
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
 % ---
 
 % inserir lista de tabelas
-%\pdfbookmark[0]{\listtablename}{lot}
-%\listoftables*
-%\cleardoublepage
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
 % ---
 
 
@@ -219,33 +220,37 @@ Com o resultado das pesquisas em mãos, foi então criado o \textit{ElderlyFrame
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[height=0.4\linewidth]{touchable-zoom.png}
+		\includegraphics[height=0.4\linewidth]{images/touchable-zoom.png}
 	\end{center}
-	\caption[Touchable Zoom]{Componente de Zoom por toque do \textit{ElderlyFrame}}
+	\caption[Componente \textit{TouchZoom} do \textit{ElderlyFrame}]{Componente de Zoom por toque do \textit{ElderlyFrame}}
+	\legend{Fonte: \citeauthor{tesedamaris} \cite{tesedamaris}}
 	\label{fig:touchableZoom}
 \end{figure}
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[height=0.5\linewidth]{zoom-bar.png}
+		\includegraphics[height=0.5\linewidth]{images/zoom-bar.png}
 	\end{center}
-	\caption[Componente de zoom com barra]{Componente de Zoom por barra do \textit{ElderlyFrame}}
+	\caption[Componente \textit{SeekBarZoom} do \textit{ElderlyFrame}]{Componente de Zoom por barra do \textit{ElderlyFrame}}
+	\legend{Fonte: \citeauthor{tesedamaris} \cite{tesedamaris}}
 	\label{fig:zoomBar}
 \end{figure}
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[height=0.5\linewidth]{rotation.png}
+		\includegraphics[height=0.5\linewidth]{images/rotation.png}
 	\end{center}
-	\caption[Componente de Rotação com apenas um dedo]{Componente de rotação com apenas um dedo do \textit{ElderlyFrame}}
+	\caption[Componente \textit{SimpleRotation} do \textit{ElderlyFrame}]{Componente de rotação com apenas um dedo do \textit{ElderlyFrame}}
+	\legend{Fonte: \citeauthor{tesedamaris} \cite{tesedamaris}}
 	\label{fig:rotation}
 \end{figure}
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[height=0.5\linewidth]{speech-to-text.png}
+		\includegraphics[height=0.5\linewidth]{images/speech-to-text.png}
 	\end{center}
-	\caption[Speech To Text]{Componente de conversão de voz para texto (\textit{speech-to-text}) do \textit{ElderlyFrame}}
+	\caption[Componente \textit{SpeechToText} do \textit{ElderlyFrame}]{Componente de conversão de voz para texto (\textit{speech-to-text}) do \textit{ElderlyFrame}}
+	\legend{Fonte: \citeauthor{tesedamaris} \cite{tesedamaris}}
 	\label{fig:speechToText}
 \end{figure}
 
@@ -263,9 +268,9 @@ Como dito anteriormente, o \textit{ElderlyFrame} é um \textit{framework} de int
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=1\linewidth]{github-compare.png}
+		\includegraphics[width=1\linewidth]{images/github-compare.png}
 	\end{center}
-	\caption[GitHub Compare]{Comparação entre as estatísticas dos repositórios de tecnologias de desenvolvimento híbrido: \textit{React Native}, \textit{Flutter}, \textit{Ionic} e \textit{Kivy}}
+	\caption[Comparativo de estatísticas dos repositórios de tecnologias de desenvolvimento multiplataforma]{Comparação entre as estatísticas dos repositórios de tecnologias de desenvolvimento multiplataforma: \textit{React Native}, \textit{Flutter}, \textit{Ionic} e \textit{Kivy}}
 	\label{fig:githubCompare}
 	\legend{Fonte: \textit{GitHub Compare}. Disponível em \url{https://www.githubcompare.com/facebook/react-native+flutter/flutter+ionic-team/ionic-framework+kivy/kivy/}}
 \end{figure}
@@ -276,19 +281,18 @@ Além das estatísticas apresentadas no parágrafo anterior, foi usada como uma 
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[height=.5\linewidth]{mobile-frameworks-statista.png}
+		\includegraphics[height=.5\linewidth]{images/mobile-frameworks-statista.png}
 	\end{center}
-	\caption[GitHub Compare]{Comparação entre as estatísticas de uso de \textit{frameworks} para desenvolvimento multiplataforma}
+	\caption[Comparativo de uso de frameworks para desenvolvimento multiplataforma]{Comparação entre as estatísticas de uso de \textit{frameworks} para desenvolvimento multiplataforma}
 	\label{fig:statistaResearch}
-	\legend{Fonte: \textit{Statista}. Disponível em
-		\url{https://www.statista.com/statistics/869224/worldwide-software-developer-working-hours/}}
+	\legend{Fonte: \citeauthor{statista} \cite{statista}}
 \end{figure}
 
 \chapter{Objetivo}\label{sec:objetivos}
 
 \section{Geral}
 
-A proposta deste trabalho é implementar o \emph{ElderlyFrame} utilizando \emph{React Native}, uma tecnologia para desenvolvimento híbrido para dispositivos móveis, visando ampliar o impacto do mesmo e criar novas possibilidades de uso da ferramenta.
+A proposta deste trabalho é implementar o \emph{ElderlyFrame} utilizando \emph{React Native}, uma tecnologia para desenvolvimento multiplataforma para dispositivos móveis, visando ampliar o impacto do mesmo e criar novas possibilidades de uso da ferramenta.
 
 \section{Específicos}
 
@@ -309,9 +313,62 @@ Dadas as informações obtidas pelos testes realizados, foi então desenvolvido 
 
 \chapter{Metodologia}\label{sec:metodologia}
 
-Para a implementação deste projeto será utilizada a tecnologia \emph{React Native}, na qual serão implementados os componentes utilizando as linguagens de programação \emph{Javascript} e \emph{Typescript}. Todos os artefatos produzidos estão disponíveis em um repositório público na plataforma \emph{GitHub} e pode ser acessado através do endereço a seguir: \linebreak
+Para dar início a este trabalho, primeiro foi necessário compreender o funcionamento do \textit{ElderlyFrame}. Para tal, foi criada uma aplicação para testes, em que foram utilizados todos os componentes implementados pelo framework. Dessa forma, foi possível identificar o funcionamento esperado de cada um, para serem posteriormente implementados no \textit{react-native-accessibility-elderly}, nome dado ao artefato produzido ao fim produzido através deste trabalho.
 
-\href{https://github.com/reisdev/react-native-elderly-frame/}{https://github.com/reisdev/react-native-elderly-frame/}.
+\section{O \textit{ElderlyFrame}}
+
+Enquanto analisava os códigos da implementação do do \textit{ElderlyFrame}, pude identificar alguns problemas. Como o foco principal do trabalho da Dâmaris foi a realização da pesquisa, imagino que isso possa ter impactado o resultado final da implementação.
+
+Como a primeira versão do \textit{ElderlyFrame} foi publicada em 2019, 2 anos antes do desenvolvimento deste presente trabalho, fez-se necessário realizar algumas mudanças, sendo elas:
+
+\begin{itemize}
+	\item Atualização da ferramenta \textit{gradle} para a versão 5.1.1
+	\item Atualização da \textit{minSdkVersion} para a versão 16
+	\item Atualização da \textit{compileSdkVersion} para a versão 30
+	\item Mudança repositório central de \textit{JCenter} para \textit{MavenCentral}
+	\item Mudança do pacote \textit{android.support} para o pacote \textit{androidx}
+	\item Correção na implementação do ícone do componente \textit{SpeechText}
+\end{itemize}
+
+Para fins de registro das modificações realizadas, foi feito um \textit{fork} do projeto da \textit{ElderlyFrame} na plataforma \textit{GitHub}, que pode ser acessado no link abaixo: \linebreak
+
+\href{https://github.com/reisdev/elderlyframe/}{https://github.com/reisdev/elderlyframe}.
+
+
+\section{O framework \textit{react-native-accessibility-elderly}}
+
+\par
+
+A ideia inicial era implementar o framework de forma nativa. Ou seja, os trechos de código seriam escritos separadamente para cada plataforma. Para \textit{iOS}, usando \textit{Swift} ou \textit{Objective-C}, e para \textit{Android}, usando \textit{Java} ou \textit{Kotlin}. Porém, a tecnologia utilizada, \textit{React Native}, ainda apresenta algumas limitações com relação à implementação de módulos nativos, e isso levou à decisão de criar os componentes utilizando apenas \textit{Javascript} e \textit{Typescript}, linguagens usadas pela própria tecnologia.
+
+\subsection{Recursos de terceiros}
+
+A criação dos componentes do framework exigiu que algumas bibliotecas de terceiros fossem utilizadas, pois as mesmas forneciam recursos que demandariam muito esforço para serem implementados, que não caberia dentro dos prazos do projeto. Abaixo, temos a especificação de cada biblioteca e os recursos que as mesmas oferecem:
+
+\begin{itemize}
+	\item \textit{@react-native-voice/voice}: Reconhecimento de voz e conversão de voz para texto
+	\item \textit{@react-native-community/slider}: Componente \textit{Slider} para \textit{React Native}
+	\item \textit{react-native-vector-icons}: Conjunto de ícones variados
+	\item \textit{react-native-gesture-handler}: Reconhecimento de gestos na tela de um dispositivo móvel.
+\end{itemize}
+
+\subsection{Os desafios}
+
+Uma das maiores barreiras encontradas ao desenvolver este framework foi o próprio \textit{React Native}. Apesar de ser uma tecnologia madura, ainda apresenta algumas limitações com relação ao desenvolvimento de pacotes.
+
+\par
+
+A ferramenta \textit{yarn}, alternativa ao \textit{npm}, foi usada para criar um ambiente de desenvolvimento, pois ela permite que uma aplicação e uma biblioteca sejam criadas num mesmo ambiente, compartilhando a instalação de pacotes e assim, reduzindo o espaço em disco necessário. Nesse sentido, o uso do \textit{yarn} foi essencial na hora de acelerar o processo de desenvolvimento e também de testes do framework.
+
+\subsection{Publicação de pacote}
+
+O \textit{react-native-accessibility-elderly} será um publicado em forma de pacote usando a ferramenta \textit{npm}, que é um gerenciador de pacotes. Sendo assim, qualquer pessoa que deseje criar uma aplicação para dispositivos móveis com recursos de acessibilidade para idosos, poderá utilizar os componentes deste framework através da instalação do pacote usando o \textit{npm}.
+
+A tecnologia \textit{React Native} exige que pacotes com implementações nativas passem por um processo de \textit{link}, que consiste em referenciar as respectivas implementações para que as aplicações que as usam possam encontrar e utilizar seus recursos.
+
+\chapter{Resultados}\label{sec:resultados}
+
+\chapter{Trabalhos Futuros}\label{sec:futuro}
 
 \chapter{Cronograma}\label{sec:cronograma}
 
@@ -338,50 +395,49 @@ Para execução deste projeto, foram estabelecidas as atividades a serem realiza
 	\fonte{Próprio Autor}
 \end{table}
 
+As demandas de tempo(em horas) estimadas para orientação, desenvolvimento e revisão da literatura, do projeto escrito e demais artefatos produzidos são:
 
-% As demandas de tempo(em horas) estimadas para orientação, desenvolvimento e revisão da literatura, do projeto escrito e demais artefatos produzidos são:
+\par
 
-% \par
+\begin{table}[htpb]
+	\centering
+	\caption[Cronograma em horas]{Estimativa de tempo para cada atividade}
+	\label{tab:cronogramaHoras}
+	\begin{tabular}{lcc}
+		\toprule
+		\textbf{Item} & \textbf{Custeio} & \textbf{Tempo(horas)} \\
+		\midrule
+		Orientação    & Governo Federal  & 40                    \\
+		Projeto       & Próprio          & 300                   \\
+		Revisão       & Próprio          & 20                    \\
+		\bottomrule
+		Total         &                  & 360
+	\end{tabular}
+	\fonte{Próprio autor}
+\end{table}
 
-% \begin{table}[htpb]
-% 	\centering
-% 	\caption[Cronograma em horas]{Estimativa de tempo para cada atividade}
-% 	\label{tab:cronogramaHoras}
-% 	\begin{tabular}{lcc}
-% 		\toprule
-% 		\textbf{Item} & \textbf{Custeio} & \textbf{Tempo(horas)} \\
-% 		\midrule
-% 		Orientação    & Governo Federal  & 40                    \\
-% 		Projeto       & Próprio          & 60                    \\
-% 		Revisão       & Próprio          & 20                    \\
-% 		\bottomrule
-% 		Total         &                  & 120
-% 	\end{tabular}
-% 	\fonte{Próprio autor}
-% \end{table}
+\chapter{Orçamento}\label{sec:orcamento}
 
-% \chapter{Orçamento}\label{sec:orcamento}
+Estão orçados para este projeto os itens contidos na tabela abaixo, acompanhados de seus respectivos financiadores e valores:
 
-% Estão orçados para este projeto os itens contidos na tabela abaixo, acompanhados de seus respectivos financiadores e valores:
+\par
 
-% \par
-
-% \begin{table}[htpb]
-% 	\centering
-% 	\caption[Orçamento]{Orçamento financeiro}
-% 	\label{tab:orcamento}
-% 	\begin{tabular}{lccc}
-% 		\toprule
-% 		\textbf{Item}                         & \textbf{Custeio} & \textbf{Custo} \\
-% 		\midrule
-% 		Computador Pessoal                    & Próprio          & R\$ 5000       \\
-% 		Conexão com a \textit{Internet}       & Próprio          & R\$ 900        \\
-% 		Licença para publicação na Play Store & Próprio          & ~R\$140        \\
-% 		\bottomrule
-% 		Total                                 &                  & R\$6040        \\
-% 	\end{tabular}%
-% 	\fonte{Próprio Autor}
-% \end{table}%
+\begin{table}[htpb]
+	\centering
+	\caption[Orçamento]{Orçamento financeiro}
+	\label{tab:orcamento}
+	\begin{tabular}{lccc}
+		\toprule
+		\textbf{Item}                         & \textbf{Custeio} & \textbf{Custo} \\
+		\midrule
+		Computador Pessoal                    & Próprio          & R\$ 5000       \\
+		Conexão com a \textit{Internet}       & Próprio          & R\$ 900        \\
+		Licença para publicação na Play Store & Próprio          & ~R\$140        \\
+		\bottomrule
+		Total                                 &                  & R\$6040        \\
+	\end{tabular}%
+	\fonte{Próprio Autor}
+\end{table}%
 
 % \chapter{Resultados Esperados}\label{sec:resultEsperados}
 
@@ -392,8 +448,7 @@ Para execução deste projeto, foram estabelecidas as atividades a serem realiza
 
 % Referências bibliográficas
 
-%\bibliographystyle{abbrv}
-\bibliography{referencias}
+\printbibliography[title={Referências Bibliográficas}]
 
 % Caso sejam necessários apêndices ou anexos em seu documento
 % Use os ambientes abaixo

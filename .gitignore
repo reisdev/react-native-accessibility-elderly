@@ -57,6 +57,10 @@ buck-out/
 *.aux
 *.tgz
 *.sh
+*.lof
+*.bcf
+docs/*.xml
+*.synctex*
 
 .vscode
 .expo*

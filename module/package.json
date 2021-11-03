@@ -1,6 +1,6 @@
 {
-  "name": "react-native-elderly-frame",
-  "title": "React Native ElderlyFrame",
+  "name": "react-native-accessibility-elderly",
+  "title": "React Native Accessibility Elderly",
   "version": "0.0.8",
   "description": "UI Framework em React Native com componentes focados em acessibilidade para idosos em dispositivos móveis",
   "main": "index.js",
@@ -41,7 +41,9 @@
   "licenseFilename": "LICENSE",
   "peerDependencies": {
     "@react-native-community/slider": "^3.0.3",
-    "@react-native-voice/voice": "^3.2.2"
+    "@react-native-voice/voice": "^3.2.2",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-vector-icons": "^8.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
