@@ -33,6 +33,8 @@
 \usepackage{float}				% Posicionamento específico de figuras
 \usepackage{booktabs}           % \toprule, \midrule e \bottomrule para tabelas
 \usepackage{hyperref}
+\usepackage{csquotes}
+\usepackage{listings}			% Para trechos de código
 % Sistema autor-data com títulos nas referências em negrito
 % \usepackage[abbrv,abnt-emphasize=bf]{abntex2cite}
 \usepackage[backend=biber, style=numeric]{biblatex}
@@ -145,7 +147,7 @@
 
 	\MakeUppercase{\textbf{Resumo}}
 
-	A constante evolução da tecnologia tem trazido cada vez mais recursos inovadores que têm transformado a maneira como interagimos com o mundo. De um computador de mesa à um dispositivo móvel, a quantidade de recursos que temos à nossa disposição é quase imensurável. Porém, esses recursos têm suas limitações, principalmente por alcançarem públicos diversos e não necessariamente estarem preparados para lidar com as necessidades que estes possuem. Especialmente em dispositivos móveis, grande parte das aplicações não possuem recursos que possibilitem o uso por pessoas com necessidades especiais, como por exemplo pessoas idosas. Tendo isso em mente, o presente projeto foi idealizado para fornecer recursos que possam sanar as principais dificuldades enfrentadas por idosos ao tentar utilizar um dispositivo móvel.
+	A constante evolução da tecnologia tem trazido cada vez mais recursos inovadores que têm transformado a maneira como interagimos com o mundo. De um computador de mesa à um dispositivo móvel, a quantidade de recursos que temos à nossa disposição é quase imensurável. Porém, esses recursos têm suas limitações, principalmente por alcançarem públicos diversos e não necessariamente estarem preparados para lidar com as necessidades que estes possuem. Especialmente em dispositivos móveis, grande parte das aplicações não possuem recursos que possibilitem o uso por pessoas com necessidades especiais, como por exemplo pessoas idosas. Tendo isso em mente, este trabalho desenvolveu componentes que podem ser reutilizados durante o desenvolvimento de aplicativos móveis que terão idosos como usuários. Esses componentes são compatíveis com todos os principais sistemas operacionais modernos para dispositivos móveis e permitem que as principais dificuldades enfrentadas por idosos ao tentar utilizar estes dispositivos sejam contornadas.
 
 	\vspace{\onelineskip}
 
@@ -358,7 +360,7 @@ Uma das maiores barreiras encontradas ao desenvolver este framework foi o própr
 
 \par
 
-A ferramenta \textit{yarn}, alternativa ao \textit{npm}, foi usada para criar um ambiente de desenvolvimento, pois ela permite que uma aplicação e uma biblioteca sejam criadas num mesmo ambiente, compartilhando a instalação de pacotes e assim, reduzindo o espaço em disco necessário. Nesse sentido, o uso do \textit{yarn} foi essencial na hora de acelerar o processo de desenvolvimento e também de testes do framework.
+A ferramenta \textit{yarn}, alternativa ao \textit{npm}, foi usada para criar um ambiente de desenvolvimento, pois ela permite que uma aplicação e uma biblioteca sejam criadas num mesmo ambiente, compartilhando a instalação de pacotes e assim, reduzindo o espaço em disco necessário. Nesse sentido, o uso do \textit{yarn} foi essencial na hora de acelerar o processo de desenvolvimento e também de testes para validação do \textit{framework}.
 
 \subsection{Publicação de pacote}
 
@@ -368,7 +370,80 @@ A tecnologia \textit{React Native} exige que pacotes com implementações nativa
 
 \chapter{Resultados}\label{sec:resultados}
 
-\chapter{Trabalhos Futuros}\label{sec:futuro}
+\section{Código-fonte}
+
+O código-fonte do \textit{framework} desenvolvido durante este trabalho foi criado em um repositório público, de código aberto, sob a liçença pública GNU v3.0. O repositório pode ser acessado através do link abaixo:
+
+\href{https://github.com/reisdev/react-native-accessibility-elderly}{https://github.com/reisdev/react-native-accessibility-elderly}
+
+\section{Componentes}
+
+Todos os componentes contidos no \textit{EldelryFrame} foram devidamente implementados utilizando \textit{React Native}. A seguir, um detalhamento maior das especificidades de cada um e um exemplo de como utilizá-lo em uma aplicação para dispositivos móveis.
+
+\subsection{Componente \textit{SpeechToText}}
+
+O componente \textit{SpeechToText}, originalmente nomeado \textit{SpeechText}, teve seu nome alterado para ser mais descritivo sobre seu propósito.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=.8\linewidth]{images/SpeechToText.png}
+		\caption[Componente \textit{SpeechToText}]{Exemplo de utilização do componente \textit{SpeechToText}}
+		\label{fig:speechToTextExample}
+		\legend{Fonte: Próprio Autor}
+	\end{center}
+\end{figure}
+
+\subsection{Componente \textit{SimpleRotation}}
+
+Implementar este componente envolveu realizar diversos desafios, como capturar os gestos na tela de um dispositivos até calcular o ângulo de rotação através dos movimentos do dedo na tela. No \textit{ElderlyFrame} este componente não foi completamente implementado, o que dificultou um pouco a sua tradução para \textit{React Native}. Apesar disso, foi possível concluílo com sucesso. Abaixo, temos um exemplo de como utilizá-lo:
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=.8\linewidth]{images/SimpleRotation.png}
+		\caption[Componente \textit{SimpleRotation}]{Exemplo de utilização do componente \textit{SimpleRotation}}
+		\label{fig:simpleRotationExample}
+		\legend{Fonte: Próprio Autor}
+	\end{center}
+\end{figure}
+
+\subsection{Componente \textit{SeekBarZoom}}
+
+O componente \textit{SeekBarZoom}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=.8\linewidth]{images/SeekBarZoom.png}
+		\caption[Componente \textit{SeekBarZoom}]{Exemplo de utilização do componente \textit{SeekBarZoom}}
+		\label{fig:seekBarZoomExample}
+		\legend{Fonte: Próprio Autor}
+	\end{center}
+\end{figure}
+
+\section{Pacote no \textit{npm}}
+
+Como dito anteriormente,a forma escolhida para disponibilizar este framework para ser usado em aplicações para dispositivos móveis foi o \textit{npm}. Para adicionar o framework à uma aplicação construída usando \textit{React Native} basta utilizar um dos comandos abaixo no terminal, dentro da pasta raiz do seu projeto:
+
+\begin{lstlisting}[language=bash]
+# Caso use o npm
+$ npm install react-native-accessibility-elderly
+
+# Caso use o yarn
+$ yarn add react-native-accessibility-elderly
+\end{lstlisting}
+
+Pode ser necessário executar o comando \textit{link} para que as bibliotecas de terceiros possam ser devidamente encontradas. Execute o comando abaixo no terminal, dentro da pasta raiz do seu projeto:
+
+\begin{lstlisting}[language=bash]
+$ react-native link
+\end{lstlisting}
+
+\chapter{Conclusões e Trabalhos Futuros}\label{sec:futuro}
+
+Como trabalhos futuros, vê-se a necessidade de acompanhar a evolução da tecnologia utilizada, no caso, \textit{React Native}, pois a mesma constantemente recebe melhorias e correções que podem ter impacto direto na usabilidade desta ferramenta.
+
+Reduzir a utilização de bibliotecas de terceiros seria outro ponto a se considerar, pois eventualmente algumas delas podem deixar de receber suporte, e se tornarem inutilizáveis. Portanto, é desejável que se tenha o mínimo de dependências. Seria possível, por exemplo, implementar o \textit{Slider} do componente \textit{SeekBarZoom} apenas utilizando a biblioteca \textit{react-native-gesture-handler}, eliminando assim a dependência \textit{@react-native-community/slider}.
+
+A realização de uma pesquisa para validação da eficiência dos componentes implementados neste trabalho seria de grande utilidade. Assim como foi feito pela \Cite{tesedamaris}, para dar início ao \textit{ElderlyFrame}, validar os resultados junto a grupos de idosos permitiria verificar se este \textit{framework} cumpriu seu propósito.
 
 \chapter{Cronograma}\label{sec:cronograma}
 
