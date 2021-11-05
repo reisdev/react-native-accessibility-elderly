@@ -35,6 +35,7 @@
 \usepackage{hyperref}
 \usepackage{csquotes}
 \usepackage{listings}			% Para trechos de código
+\usepackage{subfig}
 % Sistema autor-data com títulos nas referências em negrito
 % \usepackage[abbrv,abnt-emphasize=bf]{abntex2cite}
 \usepackage[backend=biber, style=numeric]{biblatex}
@@ -212,9 +213,32 @@ realizada pela \emph{Fundação Getúlio Vargas}\cite{pesquisati30}, em abril de
 
 Com o crescimento vertiginoso do uso de dispositivos móveis, há um aumento da demanda por aplicações que possam atender às mais diversas necessidades das pessoas que os utilizam. Levando em consideração os dados citados previamente, é plausível considerar que boa parte dos novos dispositivos pertençam à pessoas da terceira idade, que comumente apresentam dificuldade para executar diversas ações que são essenciais na interação de dispositivos móveis, em especial, os com tela tátil. Além dos fatores mais comuns, pessoas idosas apresentam problemas motores, de visão e cognitivos, que tornam ainda mais difíceis essas interações. Segundo Claudia Zapata \emph{et al}, “O desenvolvimento de aplicações para dispositivo móveis se tornou uma forma de melhorar a qualidade de vida para idosos, já que é possível aplicar a vários setores como a medicina, por exemplo”\cite{elderlyMainChallenges}.
 
+\section{Objetivo}\label{sec:objetivos}
+
+\subsection{Geral}
+
+A proposta deste trabalho é implementar o \emph{ElderlyFrame} utilizando \emph{React Native}, uma tecnologia para desenvolvimento multiplataforma para dispositivos móveis, visando ampliar o impacto do mesmo e criar novas possibilidades de uso da ferramenta.
+
+\subsection{Específicos}
+
+Como objetivos específicos, propunha-se:
+
+\begin{itemize}
+	\item Analisar do \textit{ElderlyFrame} para embasamento
+	\item Desenvolver o novo \textit{framework} utilizando uma tecnologia multiplataforma
+	\item Desenvolver uma aplicação para teste dos componentes do \textit{framework}
+	\item Ter como resultado final uma ferramenta reutilizável e facilitadora das interações de pessoas idosas com dispositivos móveis
+\end{itemize}
+
+\chapter{Referencial Teórico}\label{sec:referencialTeorico}
+
+\section{ElderlyFrame}
+
+Em uma conversa com o orientador deste projeto, Lucas Vegi, conheci a tese de mestrado desenvolvida pela Dâmaris Arruda: Um \textit{framework} para facilitar as interações entre dispositivos móveis e pessoas idosas\cite{tesedamaris}.
+
 \par
 
-Este projeto foi idealizado a partir de um trabalho anterior: \textit{Um framework para facilitar as interações entre dispositivos móveis e pessoas idosas}\cite{tesedamaris}. Em sua tese, Dâmaris buscou identificar as ações em dispositivos móveis que os idosos enfrentam maior dificuldade para executar. Para conseguir identificar algumas dessas dificuldades, foram realizados testes em um trabalho conjunto com o \emph{Programa da Terceira Idade}, um projeto da Prefeitura Municipal de Viçosa - MG. Através destes testes foram identificadas algumas das ações que os idosos mais apresentam dificuldade em executar: o movimento de pinça, movimento de rotação e digitação.
+Em sua tese, Dâmaris buscou identificar as ações em dispositivos móveis que os idosos enfrentam maior dificuldade para executar. Para conseguir identificar algumas dessas dificuldades, foram realizados testes em um trabalho conjunto com o \emph{Programa da Terceira Idade}, um projeto da Prefeitura Municipal de Viçosa - MG. Através destes testes foram identificadas algumas das ações que os idosos mais apresentam dificuldade em executar: o movimento de pinça, movimento de rotação e digitação.
 
 \par
 
@@ -256,17 +280,9 @@ Com o resultado das pesquisas em mãos, foi então criado o \textit{ElderlyFrame
 	\label{fig:speechToText}
 \end{figure}
 
-\chapter{Justificativa}\label{sec:justificativa}
+\section{Desenvolvimento multiplataforma}
 
-Atualmente existem implementações para \textit{React Native} de ferramentas que facilitam a presença de recursos de acessibilidade em aplicações para dispositivos móveis. Porém, estas ferramentas utilizam apenas recursos já existentes, funcionando apenas como facilitadoras. Este é um diferencial do \textit{ElderlyFrame}, e consequentemente deste projeto, que traz uma nova abordagem para interações que pessoas idosas apresentam dificuldade em executar.
-
-\par
-
-Em pesquisas realizadas para elaboração deste projeto, somente foram encontrados artigos e teses que abordavam a teoria da acessibilidade para idosos. Conteúdos que abordavam a falta de inclusão digital da terceira idade,  a falta de recursos de acessibilidade em aplicações para dispositivos móveis e afins. Porém, foi notada uma carência de projetos que de fato produzissem algo para mudar este cenário. O \textit{ElderlyFrame} foi construído com este propósito, e essa também é uma das motivações desta pesquisa.
-
-\par
-
-Como dito anteriormente, o \textit{ElderlyFrame} é um \textit{framework} de interface de usuário nativo para \textit{Android}, e este é um fator limitante da sua utilização. Ampliar o impacto do projeto e abranger uma maior parcela do cenário de desenvolvimento para dispositivos móveis são fatores motivadores para este projeto. Para isto, decidiu-se por focar em uma tecnologia de desenvolvimento multiplataforma. Tecnologias de desenvolvimento multiplataforma permitem o desenvolvimento de aplicações para diferentes ambientes, como \emph{Android} e \emph{iOS}, utilizando uma mesma base de código. A tecnologia escolhida para análise nesta pesquisa foi \textit{React Native}, pois é utilizado em aplicações com grande representatividade, como \textit{Instagram}, \textit{AirBnb} e \textit{Uber}.
+Como dito anteriormente, o \textit{ElderlyFrame} é um \textit{framework} de interface de usuário nativo para \textit{Android}, e este é um fator limitante da sua utilização. Ampliar o impacto do projeto e abranger uma maior parcela do cenário de desenvolvimento para dispositivos móveis são fatores motivadores para este projeto. Para isto, decidiu-se por focar em uma tecnologia de desenvolvimento multiplataforma. Tecnologias de desenvolvimento multiplataforma permitem o desenvolvimento de aplicações para diferentes sistemas operacionais, como \emph{Android} e \emph{iOS}, utilizando uma mesma base de código.
 
 \begin{figure}[H]
 	\begin{center}
@@ -279,7 +295,7 @@ Como dito anteriormente, o \textit{ElderlyFrame} é um \textit{framework} de int
 
 A imagem acima mostra que o repositório do \textit{React Native}, no \textit{GitHub}, tem a maior quantidade de \textit{forks} e o 2º maior número de \textit{stars} e \textit{issues}, quando comparado com outras tecnologias de desenvolvimento multiplataforma, a saber: \textit{Flutter},\textit{Ionic} e \textit{Kivy}.
 
-Além das estatísticas apresentadas no parágrafo anterior, foi usada como uma base uma pesquisa realizada pela \textit{Statista}, que aborda o uso de \textit{frameworks} para desenvolvimento multiplataforma. Como pode ser observado, o \textit{React Native} representa aproximadamente 42\% do uso em aplicações. Em um cenário com tantas opções, 42\% é um valor significativamente grande e que poderia ampliar o impacto dos resultados deste projeto.
+Além das estatísticas apresentadas no parágrafo anterior, foi usada como uma base uma pesquisa realizada pela \textit{Statista}, que aborda o uso de \textit{frameworks} para desenvolvimento multiplataforma. Como pode ser observado, o \textit{React Native} representa aproximadamente 42\% do uso em aplicações.
 
 \begin{figure}[H]
 	\begin{center}
@@ -290,28 +306,15 @@ Além das estatísticas apresentadas no parágrafo anterior, foi usada como uma 
 	\legend{Fonte: \citeauthor{statista} \cite{statista}}
 \end{figure}
 
-\chapter{Objetivo}\label{sec:objetivos}
+Em um cenário com tantas opções, a tecnologia \textit{React Native} se destaca sobre as demais, e inclusive é utilizado em aplicações com grande representatividade, como \textit{Instagram}, \textit{AirBnb} e \textit{Uber}.
 
-\section{Geral}
+\section{Trabalhos prévios}
 
-A proposta deste trabalho é implementar o \emph{ElderlyFrame} utilizando \emph{React Native}, uma tecnologia para desenvolvimento multiplataforma para dispositivos móveis, visando ampliar o impacto do mesmo e criar novas possibilidades de uso da ferramenta.
-
-\section{Específicos}
-
-Além da implementação, serão verificados os pontos em que o \emph{React Native} pode não ser suficiente para suprir as necessidades de implementação, buscar por novos recursos para serem adicionados ao escopo e criar uma aplicação que possibilite a validação do artefato a ser criado.
-
-
-\chapter{Referencial Teórico}\label{sec:referencialTeorico}
-
-Em uma conversa com o orientador deste projeto, Lucas Vegi, conheci a tese de mestrado desenvolvida pela Dâmaris Arruda: Um \textit{framework} para facilitar as interações entre dispositivos móveis e pessoas idosas\cite{tesedamaris}.
+Atualmente existem implementações para \textit{React Native} de ferramentas que facilitam a presença de recursos de acessibilidade em aplicações para dispositivos móveis. Porém, estas ferramentas utilizam apenas recursos já existentes, como, por exemplo, para mecanismo de leitura de tela, funcionando apenas como facilitadoras. Este é um diferencial do \textit{ElderlyFrame}, e consequentemente deste projeto, que traz uma nova abordagem para interações que pessoas idosas apresentam dificuldade em executar.
 
 \par
 
-Em seu trabalho, Dâmaris buscou elencar as ações em dispositivos móveis que os idosos enfrentam maior dificuldade para executar. Após testes realizados em um trabalho conjunto com o \emph{Programa da Terceira Idade}, um projeto da Prefeitura Municipal de Viçosa - MG, foram identificadas tais ações: movimento de pinça, movimento de rotação e digitação.
-
-\par
-
-Dadas as informações obtidas pelos testes realizados, foi então desenvolvido um \textit{framework} de interface de usuário nativo para \textit{Android}. O projeto contém um conjunto de componentes visuais com o objetivo de facilitar ações que geralmente exigem mais coordenação motora e acuidade visual.
+Em pesquisas realizadas para elaboração deste projeto, somente foram encontrados artigos e teses que abordavam a teoria da acessibilidade para idosos, falta de inclusão digital da terceira idade, falta de recursos de acessibilidade em aplicações para dispositivos móveis e afins. Porém, foi notada uma carência de projetos que de fato produzissem algo para mudar este cenário. O \textit{ElderlyFrame} foi construído com este propósito, e essa é uma das motivações desta pesquisa.
 
 \chapter{Metodologia}\label{sec:metodologia}
 
@@ -319,9 +322,9 @@ Para dar início a este trabalho, primeiro foi necessário compreender o funcion
 
 \section{O \textit{ElderlyFrame}}
 
-Enquanto analisava os códigos da implementação do do \textit{ElderlyFrame}, pude identificar alguns problemas. Como o foco principal do trabalho da Dâmaris foi a realização da pesquisa, imagino que isso possa ter impactado o resultado final da implementação.
+Ao analisar a implementação do \textit{ElderlyFrame}, foi possível identificar alguns problemas. Como o foco principal do trabalho da Dâmaris foi a realização da pesquisa, imagino que isso possa ter impactado o resultado final da implementação.
 
-Como a primeira versão do \textit{ElderlyFrame} foi publicada em 2019, 2 anos antes do desenvolvimento deste presente trabalho, fez-se necessário realizar algumas mudanças, sendo elas:
+Como a primeira versão do \textit{ElderlyFrame} foi publicada em 2019, 2 anos antes do desenvolvimento deste presente trabalho, fez-se necessário realizar algumas mudanças, pois as tecnologias usadas passaram por atualizações e melhorias, fazendo com que tais alterações fossem necessárias. Abaixo temos uma lista do que foi modificado:
 
 \begin{itemize}
 	\item Atualização da ferramenta \textit{gradle} para a versão 5.1.1
@@ -380,35 +383,49 @@ O código-fonte do \textit{framework} desenvolvido durante este trabalho foi cri
 
 Todos os componentes contidos no \textit{EldelryFrame} foram devidamente implementados utilizando \textit{React Native}. A seguir, um detalhamento maior das especificidades de cada um e um exemplo de como utilizá-lo em uma aplicação para dispositivos móveis.
 
-\subsection{Componente \textit{SpeechToText}}
+\subsection{Componente \textit{PinchZoom}}
 
-O componente \textit{SpeechToText}, originalmente nomeado \textit{SpeechText}, teve seu nome alterado para ser mais descritivo sobre seu propósito.
+O componente \textit{PinchZoom} implementa uma interação relativamente comum de se utilizar, que é a de pinça para aproximar um elemento. Sua implementação foi simples e inclusive foi possível aproveitar os conceitos aplicados no componente \textit{SeekBarZoom}, adaptados ao movimento de pinça. Abaixo, um exemplo de utilização do componente para desenvolvimento:
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=.8\linewidth]{images/SpeechToText.png}
-		\caption[Componente \textit{SpeechToText}]{Exemplo de utilização do componente \textit{SpeechToText}}
-		\label{fig:speechToTextExample}
+		\includegraphics[width=.8\linewidth]{images/PinchZoom.png}
+		\caption[Componente \textit{PinchZoom}]{Exemplo de utilização do componente \textit{PinchZoom}}
+		\label{fig:pinchZoomExample}
 		\legend{Fonte: Próprio Autor}
 	\end{center}
 \end{figure}
 
-\subsection{Componente \textit{SimpleRotation}}
+\par
 
-Implementar este componente envolveu realizar diversos desafios, como capturar os gestos na tela de um dispositivos até calcular o ângulo de rotação através dos movimentos do dedo na tela. No \textit{ElderlyFrame} este componente não foi completamente implementado, o que dificultou um pouco a sua tradução para \textit{React Native}. Apesar disso, foi possível concluílo com sucesso. Abaixo, temos um exemplo de como utilizá-lo:
+A seguir, temos os exemplos da utilização do componente \textit{PinchZoom} em uma aplicação sendo executada nos sistemas operacionais \textit{iOS} e \textit{Android}
 
 \begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=.8\linewidth]{images/SimpleRotation.png}
-		\caption[Componente \textit{SimpleRotation}]{Exemplo de utilização do componente \textit{SimpleRotation}}
-		\label{fig:simpleRotationExample}
-		\legend{Fonte: Próprio Autor}
-	\end{center}
+	\centering
+	\subfloat[Estado inicial do componente \textit{PinchZoom}]{
+		\includegraphics[width=.4\linewidth]{images/screenshots/iOS-PinchZoom-initial.png}}
+	\hfill
+	\subfloat[Estado do componente \textit{PinchZoom} após o movimento de pinça]{\includegraphics[width=.4\linewidth]{images/screenshots/iOS-PinchZoom-zoomed.png}}
+	\caption[Componente \textit{PinchZoom} no \textit{iOS}]{Exemplo de utilização do componente \textit{PinchZoom} no \textit{iOS}}
+	\label{fig:pinchZoomiOSExample}
+	\legend{Fonte: Próprio Autor}
 \end{figure}
+
+\begin{figure}[H]
+	\centering
+	\subfloat[Estado inicial do componente \textit{PinchZoom}]{
+		\includegraphics[width=.4\linewidth]{images/screenshots/Android-PinchZoom-initial.png}}
+	\hfill
+	\subfloat[Estado do componente \textit{PinchZoom} após o movimento de pinça]{\includegraphics[width=.4\linewidth]{images/screenshots/Android-PinchZoom-zoomed.png}}
+	\caption[Componente \textit{PinchZoom} no \textit{Android}]{Exemplo de utilização do componente \textit{PinchZoom} no \textit{Android}}
+	\label{fig:pinchZoomAndroidExample}
+	\legend{Fonte: Próprio Autor}
+\end{figure}
+
 
 \subsection{Componente \textit{SeekBarZoom}}
 
-O componente \textit{SeekBarZoom}
+O componente \textit{SeekBarZoom} permite que, através de um componente conhecido como \textit{Slider}. O \textit{Slider} é uma barra horizontal com um seletor que desliza da esquerda para a direita, neste caso, utilizado para permitir o ajuste do nível de aproximação de uma tela, sendo a esquerda o menor nível de aproximação da tela, e a direita, o maior.
 
 \begin{figure}[H]
 	\begin{center}
@@ -419,9 +436,128 @@ O componente \textit{SeekBarZoom}
 	\end{center}
 \end{figure}
 
+\par
+
+A seguir, temos os exemplos da utilização do componente \textit{SeekBarZoom} em uma aplicação sendo executada nos sistemas operacionais \textit{iOS} e \textit{Android}
+
+\begin{figure}[H]
+	\centering
+	\subfloat[Estado inicial do componente \textit{SeekBarZoom}]{
+		\includegraphics[width=.4\linewidth]{images/screenshots/iOS-SeekBarZoom-initial.png}}
+	\hfill
+	\subfloat[Estado do componente \textit{SeekBarZoom}após o ajuste de aproximação com o \textit{Slider}]{\includegraphics[width=.4\linewidth]{images/screenshots/iOS-SeekBarZoom-zoomed.png}}
+	\caption[Componente \textit{SeekBarZoom} no \textit{iOS}]{Exemplo de utilização do componente \textit{SeekBarZoom} no \textit{iOS}}
+	\label{fig:seekBarZoomiOSExample}
+	\legend{Fonte: Próprio Autor}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\subfloat[Estado inicial do componente \textit{SeekBarZoom}]{
+		\includegraphics[width=.4\linewidth]{images/screenshots/Android-SeekBarZoom-initial.png}}
+	\hfill
+	\subfloat[Estado do componente \textit{SeekBarZoom} após o ajuste de aproximação com o \textit{Slider}]{\includegraphics[width=.4\linewidth]{images/screenshots/Android-SeekBarZoom-zoomed.png}}
+	\caption[Componente \textit{SeekBarZoom} no \textit{Android}]{Exemplo de utilização do componente \textit{SeekBarZoom} no \textit{Android}}
+	\label{fig:seekBarZoomAndroidExample}
+	\legend{Fonte: Próprio Autor}
+\end{figure}
+
+\subsection{Componente \textit{SimpleRotation}}
+
+Implementar este componente envolveu realizar diversos desafios, como capturar os gestos na tela de um dispositivos até calcular o ângulo de rotação através dos movimentos do dedo na tela. No \textit{ElderlyFrame} este componente não foi completamente implementado, o que dificultou um pouco a sua tradução para \textit{React Native}. Apesar disso, foi possível concluí-lo com sucesso. Abaixo, temos um exemplo de como utilizá-lo:
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=.8\linewidth]{images/SimpleRotation.png}
+		\caption[Componente \textit{SimpleRotation}]{Exemplo de utilização do componente \textit{SimpleRotation}}
+		\label{fig:simpleRotationExample}
+		\legend{Fonte: Próprio Autor}
+	\end{center}
+\end{figure}
+
+\par
+
+A seguir, temos os exemplos da utilização do componente \textit{SimpleRotation} em uma aplicação sendo executada nos sistemas operacionais \textit{iOS} e \textit{Android}
+
+\begin{figure}[H]
+	\centering
+	\subfloat[Estado inicial do componente \textit{SimpleRotation}]{
+		\includegraphics[width=.4\linewidth]{images/screenshots/iOS-SimpleRotation-initial.png}}
+	\hfill
+	\subfloat[Estado do componente \textit{SimpleRotation} após o movimento de rotação usando apenas o toque com um dedo]{\includegraphics[width=.4\linewidth]{images/screenshots/iOS-SimpleRotation-rotated.png}}
+	\caption[Componente \textit{SimpleRotation} no \textit{iOS}]{Exemplo de utilização do componente \textit{SimpleRotation} no \textit{iOS}}
+	\label{fig:simpleRotationiOSExample}
+	\legend{Fonte: Próprio Autor}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\subfloat[Estado inicial do componente \textit{SimpleRotation}]{
+		\includegraphics[width=.4\linewidth]{images/screenshots/Android-SimpleRotation-initial.png}}
+	\hfill
+	\subfloat[Estado do componente \textit{SimpleRotation} após o movimento de rotação usando apenas o toque com um dedo]{\includegraphics[width=.4\linewidth]{images/screenshots/Android-SimpleRotation-rotated.png}}
+	\caption[Componente \textit{SimpleRotation} no \textit{Android}]{Exemplo de utilização do componente \textit{SimpleRotation} no \textit{Android}}
+	\label{fig:simpleRotationAndroidExample}
+	\legend{Fonte: Próprio Autor}
+\end{figure}
+
+\subsection{Componente \textit{SpeechToText}}
+
+O componente \textit{SpeechToText}, originalmente nomeado \textit{SpeechText}, teve seu nome alterado para ser mais descritivo sobre seu propósito. Este elemento permite que, ao pressionar o ícone de microfone, o mecanismo de reconhecimento de voz do dispositivo seja ativado e, a partir de então, tudo o que é dito será convertido para texto e inserido no campo digitável. Abaixo, temos um exemplo de como utilizá-lo no código de uma aplicação:
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=.8\linewidth]{images/SpeechToText.png}
+		\caption[Componente \textit{SpeechToText}]{Exemplo de utilização do componente \textit{SpeechToText}}
+		\label{fig:speechToTextExample}
+		\legend{Fonte: Próprio Autor}
+	\end{center}
+\end{figure}
+
+
+\par
+
+A seguir, temos os exemplos da utilização do componente \textit{SpeechToText} em uma aplicação sendo executada nos sistemas operacionais \textit{iOS} e \textit{Android}
+
+\begin{figure}[H]
+	\centering
+	\subfloat[Estado inicial do componente \textit{SpeechToText}]{
+		\includegraphics[width=.4\linewidth]{images/screenshots/iOS-SpeechToText-empty.png}}
+	\hfill
+	\subfloat[Estado do componente \textit{SpeechToText} após o reconhecimento de voz]{\includegraphics[width=.4\linewidth]{images/screenshots/iOS-SpeechToText-recognized.png}}
+	\caption[Componente \textit{SpeechToText} no \textit{iOS}]{Exemplo de utilização do componente \textit{SpeechToText} no \textit{iOS}}
+	\label{fig:speechToTextiOSExample}
+	\legend{Fonte: Próprio Autor}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\subfloat[Estado inicial do componente \textit{SpeechToText}]{
+		\includegraphics[width=.4\linewidth]{images/screenshots/Android-SpeechToText-empty.png}}
+	\hfill
+	\subfloat[Estado do componente \textit{SpeechToText} após o reconhecimento de voz]{\includegraphics[width=.4\linewidth]{images/screenshots/Android-SpeechToText-recognized.png}}
+	\caption[Componente \textit{SpeechToText} no \textit{Android}]{Exemplo de utilização do componente \textit{SpeechToText} no \textit{Android}}
+	\label{fig:speechToTextAndroidExample}
+	\legend{Fonte: Próprio Autor}
+\end{figure}
+
+\subsection{Componente \textit{TouchZoom}}
+
+O componente \textit{TouchZoom}, permite que a tela de uma aplicação seja aproximada ao realizar um toque mais longo na tela de um dispositivo. Dessa forma, dispensa que a pessoa que interage com o dispositivo realize movimentos mais complexos, como toques com múltiplos dedos. Abaixo, temos um exemplo de como utilizá-lo no código de uma aplicação:
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=.8\linewidth]{images/TouchZoom.png}
+		\caption[Componente \textit{TouchZoom}]{Exemplo de utilização do componente \textit{TouchZoom}}
+		\label{fig:touchZoomExample}
+		\legend{Fonte: Próprio Autor}
+	\end{center}
+\end{figure}
+
+
 \section{Pacote no \textit{npm}}
 
-Como dito anteriormente,a forma escolhida para disponibilizar este framework para ser usado em aplicações para dispositivos móveis foi o \textit{npm}. Para adicionar o framework à uma aplicação construída usando \textit{React Native} basta utilizar um dos comandos abaixo no terminal, dentro da pasta raiz do seu projeto:
+Como dito anteriormente, a forma escolhida para disponibilizar este framework para ser usado em aplicações para dispositivos móveis foi através do \textit{npm}. Para adicionar o framework à uma aplicação construída usando \textit{React Native} basta utilizar um dos comandos abaixo no terminal, dentro da pasta raiz do seu projeto:
 
 \begin{lstlisting}[language=bash]
 # Caso use o npm
@@ -431,19 +567,25 @@ $ npm install react-native-accessibility-elderly
 $ yarn add react-native-accessibility-elderly
 \end{lstlisting}
 
-Pode ser necessário executar o comando \textit{link} para que as bibliotecas de terceiros possam ser devidamente encontradas. Execute o comando abaixo no terminal, dentro da pasta raiz do seu projeto:
+Pode ser necessário executar o comando \textit{link} para que as bibliotecas de terceiros possam ser devidamente encontradas, a depender da versão do \textit{React Native} usada no projeto, visto que as versões mais recentes(0.60 ou superior) não requerem a execução manual deste comando. Execute o comando abaixo no terminal, dentro da pasta raiz do seu projeto:
 
-\begin{lstlisting}[language=bash]
+\begin{lstlisting}[language=bash]t
 $ react-native link
 \end{lstlisting}
 
-\chapter{Conclusões e Trabalhos Futuros}\label{sec:futuro}
+\chapter{Conclusão e Trabalhos Futuros}\label{sec:futuro}
+
+Conclui-se que os resultados finais deste projeto foram satisfatórios, visto que foi possível cobrir as especificações do projeto base, \textit{ElderlyFrame}. Além disso, também foi possível testar e garantir que é possível utilizar o artefato produzido para construir uma aplicação multiplataforma utilizando \textit{React Native}.
 
 Como trabalhos futuros, vê-se a necessidade de acompanhar a evolução da tecnologia utilizada, no caso, \textit{React Native}, pois a mesma constantemente recebe melhorias e correções que podem ter impacto direto na usabilidade desta ferramenta.
 
 Reduzir a utilização de bibliotecas de terceiros seria outro ponto a se considerar, pois eventualmente algumas delas podem deixar de receber suporte, e se tornarem inutilizáveis. Portanto, é desejável que se tenha o mínimo de dependências. Seria possível, por exemplo, implementar o \textit{Slider} do componente \textit{SeekBarZoom} apenas utilizando a biblioteca \textit{react-native-gesture-handler}, eliminando assim a dependência \textit{@react-native-community/slider}.
 
 A realização de uma pesquisa para validação da eficiência dos componentes implementados neste trabalho seria de grande utilidade. Assim como foi feito pela \Cite{tesedamaris}, para dar início ao \textit{ElderlyFrame}, validar os resultados junto a grupos de idosos permitiria verificar se este \textit{framework} cumpriu seu propósito.
+
+\par
+
+Inicialmente foi proposta a criação de uma documentação interativa usando a ferramenta \textit{Storybook}. Porém, a mesma apresentou alguns problemas que demandariam muito tempo para serem solucionados, e, dentro do prazo estabelecido, não seria viável. Um código bem documentado facilita para que outras pessoas possam utilizá-lo da maneira correta. Desta forma, criar esta documentação é vista como de suma importância e como trabalho a ser realizado no futuro.
 
 \chapter{Cronograma}\label{sec:cronograma}
 
