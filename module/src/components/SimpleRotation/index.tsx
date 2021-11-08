@@ -73,6 +73,6 @@ export const SimpleRotation: React.FC<SimpleRotationProps> = ({
             >
                 {children}
             </Animated.View>
-        </View >
+        </View>
     )
 }

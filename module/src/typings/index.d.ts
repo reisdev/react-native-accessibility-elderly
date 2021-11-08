@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import * as ReactNative from "react-native";
 import { SpeechStartEvent } from '@react-native-voice/voice';
 
-export interface SeekBarZoomProps extends ReactNative.ViewProps { }
+export interface SeekBarZoomProps extends ReactNative.ViewProps {
+    containerStyle?: ReactNative.StyleProp<ReactNative.ViewStyle>
+}
 
 export class SeekBarZoom extends Component<SeekBarZoomProps> { }
 
@@ -34,8 +36,8 @@ export interface SpeechToTextProps extends ReactNative.ViewProps {
 export class SpeechToText extends Component<SpeechTextProps> { }
 
 export interface SimpleRotationProps extends ReactNative.ViewProps {
-    containerStyle?: ReactNative.StyleProp
-    viewStyle?: ReactNative.StyleProp
+    containerStyle?: ReactNative.StyleProp<ReactNative.ViewStyle>
+    viewStyle?: ReactNative.StyleProp<ReactNative.ViewStyle>
     /**
      * Callback that receives the angle when the view is rotated
      */
